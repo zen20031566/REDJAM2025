@@ -9,8 +9,16 @@ public class SumoScript : MonoBehaviour
     public Conductor conductor;
     private float currentSongPosition;
     [SerializeField] int bpm;
+
+    [SerializeField] private AudioSource sfxAudioSource;
+
     [SerializeField] private AudioClip song;
+    [SerializeField] private AudioClip tapPerfectSound;
+    [SerializeField] private AudioClip tapMissSound;
+    [SerializeField] private AudioClip swipePerfectSound;
+    [SerializeField] private AudioClip swipeMissSound;
     public List<NoteData> noteDataList = new();
+
 
     //score windows
     [SerializeField] private float perfectWindow;
@@ -314,15 +322,31 @@ public class SumoScript : MonoBehaviour
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
-            Destroy(closestNote.gameObject);
+            if (type == NoteType.Tap)
+            {
+                sfxAudioSource.PlayOneShot(tapPerfectSound);
+            }
+                
+            else if (type == NoteType.SwipeUp || type == NoteType.SwipeDown)
+            {
+                sfxAudioSource.PlayOneShot(swipePerfectSound);
+            }
         }
         else
         {
             Debug.Log("MISS");
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
-            Destroy(closestNote.gameObject);
+            if (type == NoteType.Tap)
+            {
+                sfxAudioSource.PlayOneShot(tapMissSound);
+            }
+            else if (type == NoteType.SwipeUp || type == NoteType.SwipeDown)
+            {
+                sfxAudioSource.PlayOneShot(swipeMissSound);
+            }
         }
+        Destroy(closestNote.gameObject);
     }
 
     private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
