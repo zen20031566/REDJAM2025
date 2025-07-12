@@ -1,34 +1,51 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using TMPro;
-
-public class NoteManager : MonoBehaviour
+public class ClimbScript : MonoBehaviour
 {
+    //song related
     public Conductor conductor;
     private float currentSongPosition;
+    [SerializeField] int bpm;
+    [SerializeField] private AudioClip song;
+    public List<NoteData> noteDataList = new();
 
+    //score windows
     [SerializeField] private float perfectWindow;
     [SerializeField] private float missWindow;
+    [SerializeField] private TouchManager touchManager;
+
+    //debug remvoe later
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform hitPoint;
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TouchManager touchManager;
     [SerializeField] private Note tapNotePrefab;
-    [SerializeField] private AudioClip song;
-    [SerializeField] int bpm;
-    [SerializeField] private TextAsset hitTimingsTextAsset;
-    [SerializeField] Transform Player;
-
-    public List<NoteData> noteDataList = new();
+    public List<Note> activeNotesList = new();
     public float approachRate;
 
-    public List<Note> activeNotesList = new();
+    //visuals
+    [SerializeField] Transform player;
+    [SerializeField] Sprite playerSprite1;
+    [SerializeField] Sprite playerSprite2;
+    private SpriteRenderer spriteRenderer;
+    float lastBeat;
+    public Transform bg1;
+    public Transform bg2;
+    public float scrollSpeed = 1f;
+    public float bgHeight;
     private int spawnIndex = 0;
-
     float hittiming = 0f;
+    Vector3 originalPos;
+    [SerializeField] private float bobAmount = 0.2f;
+
     private void Start()
     {
+        spriteRenderer = player.GetComponent<SpriteRenderer>();
+        bgHeight = bg1.GetComponent<SpriteRenderer>().bounds.size.y;
         conductor.Setup(song, bpm);
+
+        originalPos = player.localPosition;
 
         for (int i = 0; i < 100; i++)
         {
@@ -40,6 +57,7 @@ public class NoteManager : MonoBehaviour
                 hitTiming = hittiming,
             });
         }
+        float lastBeat = conductor.currentSongPosition;
     }
 
     private void OnEnable()
@@ -58,8 +76,20 @@ public class NoteManager : MonoBehaviour
         touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
     }
 
+    private bool down;
+
     private void Update()
     {
+
+        //Move head bob 
+        if (conductor.currentSongPosition > lastBeat + conductor.crotchet)
+        {
+            lastBeat += conductor.crotchet / 2;
+
+            StartCoroutine(BobOnce());
+
+        }
+
         ClearInactiveNotes();
 
         currentSongPosition = conductor.currentSongPosition;
@@ -69,6 +99,14 @@ public class NoteManager : MonoBehaviour
             SpawnNote(noteDataList[spawnIndex]);
             spawnIndex++;
         }
+    }
+
+    private IEnumerator BobOnce()
+    {
+        player.localPosition = originalPos + Vector3.down * bobAmount;
+        yield return new WaitForSeconds(0.2f);
+        player.localPosition = originalPos;
+        yield return null;
     }
 
     public void SpawnNote(NoteData noteData)
@@ -85,7 +123,7 @@ public class NoteManager : MonoBehaviour
         if (prefab != null)
         {
             Note note = Instantiate(prefab);
-            note.Setup(conductor, this, spawnPoint, hitPoint, noteData);
+            note.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
             activeNotesList.Add(note);
         }
 
@@ -132,7 +170,7 @@ public class NoteManager : MonoBehaviour
                 closestNote = note;
             }
         }
-        return (closestHitTiming <= missWindow) ? closestNote : null;
+        return closestNote;
     }
 
     public void CheckNoteHitTiming(NoteType type)
@@ -147,6 +185,7 @@ public class NoteManager : MonoBehaviour
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
             Destroy(closestNote.gameObject);
+            Climb();  
         }
         else
         {
@@ -157,7 +196,28 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
+    bool spriteA;
+    private void Climb()
+    {
+        spriteRenderer.sprite = spriteA ? playerSprite1 : playerSprite2;
+        spriteA = !spriteA;
+
+        bg1.position += Vector3.down * scrollSpeed;
+        bg2.position += Vector3.down * scrollSpeed;
+
+        if (bg1.position.y <= -bgHeight)
+        {
+            bg1.position = new Vector3(bg1.position.x, bg2.position.y + bgHeight, bg1.position.z);
+        }
+
+        //if bg2 moves below the screen, move it above bg1
+        if (bg2.position.y <= -bgHeight)
+        {
+            bg2.position = new Vector3(bg2.position.x, bg1.position.y + bgHeight, bg2.position.z);
+        }
+    }
+
+    private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
     {
         Debug.Log("Touch detected");
 
