@@ -156,12 +156,17 @@ public class SushiScript : MonoBehaviour
             }
 
             float timeSinceNote = currentSongPosition - note.hitTiming;
-            if (timeSinceNote > missWindow)
+
+            // Only auto-miss if note has passed hit timing + missWindow
+            if (!note.HasBeenHit && timeSinceNote > missWindow)
             {
                 Debug.Log("AUTO MISS");
+
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
-                Destroy(note.gameObject);
+
+                // DO NOT destroy here directly
+                note.MarkAsMissed(); // Let it continue its movement first
                 activeNotesList.RemoveAt(i);
             }
         }

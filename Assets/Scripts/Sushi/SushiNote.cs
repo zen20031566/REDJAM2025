@@ -3,9 +3,12 @@ using UnityEngine;
 public class SushiNote : Note
 {
     private bool hasBeenHit = false;
-    private float speed;
+    private bool wasMissed = false;
 
-    public bool HasBeenHit => hasBeenHit;
+    // Allow SushiScript to check hit status through base class
+    public override bool HasBeenHit => hasBeenHit;
+
+    private float speed;
 
     public override void Setup(Conductor conductor, Transform spawnPoint, Transform hitPoint, NoteData noteData, float approachRate)
     {
@@ -15,7 +18,7 @@ public class SushiNote : Note
 
     protected override void Update()
     {
-        if (!isInitialized || hasBeenHit) return;
+        if (!isInitialized && !wasMissed) return;
 
         float songTime = conductor.currentSongPosition;
         float timeSinceSpawn = songTime - (hitTiming - approachRate);
@@ -24,16 +27,17 @@ public class SushiNote : Note
         transform.position = spawnPoint.position + new Vector3(distance, 0f, 0f);
     }
 
+    public override void MarkAsMissed()
+    {
+        wasMissed = true;
+        hasBeenHit = true;
+        Destroy(gameObject, 2.0f); // Give it 2 seconds to pass beyond hit point
+    }
+
     public void MarkAsHit()
     {
         hasBeenHit = true;
-        Destroy(gameObject); // or play hit animation
-    }
-
-    public void MarkAsMissed()
-    {
-        hasBeenHit = true;
-        Destroy(gameObject); // or play miss animation
+        Destroy(gameObject); // Instantly destroy on hit
     }
 }
 

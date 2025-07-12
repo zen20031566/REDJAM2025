@@ -23,6 +23,13 @@ public class Note : MonoBehaviour
         isInitialized = true;
     }
 
+    public virtual void MarkAsMissed() 
+    {
+        
+    }
+
+    public virtual bool HasBeenHit => false; // default fallback
+
     protected virtual void Update()
     {
         if (isInitialized)
