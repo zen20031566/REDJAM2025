@@ -376,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &681979827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: bpm
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9159369855311684725, guid: 3eeeb65866d6ae742a5598b1e7e07df5, type: 3}
+      propertyPath: song
+      value: 
+      objectReference: {fileID: 8300000, guid: 3db8b32bd3a1527499865fee287ab29b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -496,6 +500,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1739996b75a425c43b185e34b3ae36c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1241315187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241315189}
+  - component: {fileID: 1241315188}
+  - component: {fileID: 1241315190}
+  m_Layer: 0
+  m_Name: Climb (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1241315188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241315187}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec575655064a5446bc4d1e793b207d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conductor: {fileID: 707380540}
+  bpm: 65
+  song: {fileID: 8300000, guid: 3db8b32bd3a1527499865fee287ab29b, type: 3}
+  perfectWindow: 0.3
+  missWindow: 0.15
+  touchManager: {fileID: 1275188108}
+  spawnPoint: {fileID: 394206521}
+  hitPoint: {fileID: 677759907}
+  scoreText: {fileID: 1834470483}
+  tapNotePrefab: {fileID: 4643230748843657634, guid: 38fcdea93ee9b1d48a38aa0ff98ff2f7, type: 3}
+  activeNotesList: []
+  approachRate: 1
+  player: {fileID: 78941085}
+  playerSprite1: {fileID: -6583211601361217499, guid: e77a7dfde198ec241a49cbd2d83f84bf, type: 3}
+  playerSprite2: {fileID: 549575629239848526, guid: ebc526d13b3a50e4ea88776bf860bbf3, type: 3}
+  bg1: {fileID: 0}
+  bg2: {fileID: 0}
+  scrollSpeed: 2
+  bgHeight: 10
+  bobAmount: 0.5
+--- !u!4 &1241315189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241315187}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.91971636, y: -0.5366532, z: -9.917865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1241315190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241315187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d92319e41e4fa49a152808abe6ddc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conductor: {fileID: 707380540}
+  bpm: 65
+  song: {fileID: 8300000, guid: 3db8b32bd3a1527499865fee287ab29b, type: 3}
+  perfectWindow: 0.2
+  missWindow: 0.12
+  touchManager: {fileID: 1275188108}
+  spawnPoint: {fileID: 394206521}
+  hitPoint: {fileID: 677759907}
+  scoreText: {fileID: 1834470483}
+  tapNotePrefab: {fileID: 4643230748843657634, guid: 38fcdea93ee9b1d48a38aa0ff98ff2f7, type: 3}
+  activeNotesList: []
+  approachRate: 1
+  player: {fileID: 0}
+  playerSprite1: {fileID: 0}
+  playerSprite2: {fileID: 0}
+  bg1: {fileID: 0}
+  bg2: {fileID: 0}
+  scrollSpeed: 1
+  bgHeight: 0
+  bobAmount: 0.2
 --- !u!1 &1275188107
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,4 +831,5 @@ SceneRoots:
   - {fileID: 1834470485}
   - {fileID: 707380539}
   - {fileID: 681979828}
+  - {fileID: 1241315189}
   - {fileID: 78941085}

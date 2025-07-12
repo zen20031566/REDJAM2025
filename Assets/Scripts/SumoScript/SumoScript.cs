@@ -1,0 +1,353 @@
+using UnityEngine;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine.Audio;
+
+public class SumoScript : MonoBehaviour
+{
+    //song related
+    public Conductor conductor;
+    private float currentSongPosition;
+    [SerializeField] int bpm;
+    [SerializeField] private AudioClip song;
+    public List<NoteData> noteDataList = new();
+
+    //score windows
+    [SerializeField] private float perfectWindow;
+    [SerializeField] private float missWindow;
+    [SerializeField] private TouchManager touchManager;
+
+    //debug remvoe later
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform hitPoint;
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private Note tapNotePrefab;
+    public List<Note> activeNotesList = new();
+    public float approachRate;
+
+    //visuals
+    [SerializeField] Transform player;
+    [SerializeField] Sprite playerSprite1;
+    [SerializeField] Sprite playerSprite2;
+    private SpriteRenderer spriteRenderer;
+    float lastBeat;
+    public Transform bg1;
+    public Transform bg2;
+    public float scrollSpeed = 1f;
+    public float bgHeight;
+    private int spawnIndex = 0;
+    float hittiming = 0f;
+    Vector3 originalPos;
+    [SerializeField] private float bobAmount = 0.2f;
+    private void Start()
+    {
+        conductor.Setup(song, bpm);
+        noteDataList = noteDataList.FindAll(note => note.hitTiming >= 30f);
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 3.6920f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 4.6150f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 5.5380f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 6.4610f });//4
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 7.3840f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 7.6147f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 8.3070f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 8.5377f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 9.2300f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 10.1530f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 11.0760f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 11.3067f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 11.9990f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 12.2297f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 12.9220f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 13.8450f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 14.7680f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 14.9987f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 15.6910f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 15.9217f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 16.6140f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 17.5370f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 18.4600f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 18.6907f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 19.3830f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 19.6137f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 20.3060f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 21.2290f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 22.1520f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 22.3827f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 23.0750f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 23.3057f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 23.9980f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 24.9210f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 25.8440f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 26.0747f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 26.7670f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 26.9977f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 27.6900f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 28.6130f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 29.5360f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 29.7667f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 30.4590f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 30.6897f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 31.3820f });
+
+        //skip 3
+        //noteDataList.Add(new NoteData { type = NoteType.SwipeUp, hitTiming = 32.3050f });//Up
+        //noteDataList.Add(new NoteData { type = NoteType.SwipeDown, hitTiming = 33.2280f });//Down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 33.6894f });//shout
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 34.1510f });//Up
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 35.0740f });//Down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 35.5355f });//shout
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 35.9970f });//up
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 36.9200f });//down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 37.3815f });//shout
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 37.8430f });//up
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 38.7660f });//Down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 39.2275f });//shout
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 39.6890f });//up
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 40.6120f });//down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 41.0735f });//shout
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 41.5350f });//up
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 42.4580f });//down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 42.9195f });//shout
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 43.3810f });//up
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 44.3040f });//down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 44.7655f });//shout
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 45.2270f });//up   
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 46.1500f });//down
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 47.0730f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 47.9960f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 48.2267f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 48.9190f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 49.1497f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 49.8420f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 50.7650f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 51.6880f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 51.9187f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 52.6110f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 52.8417f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 53.5340f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 54.4570f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 55.3800f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 55.6107f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 56.3030f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 56.5337f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 57.2260f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 58.1490f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 59.0720f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 59.3027f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 59.9950f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 60.2257f });//double
+
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 60.9180f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 61.8410f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 62.7640f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 62.9947f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 63.6870f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 63.9177f });//double*/
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 64.6100f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 65.5330f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 66.4560f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 66.6867f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 67.3790f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 67.6097f });//double*/
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 68.3020f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 69.2250f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 70.1480f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 70.3787f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 71.0710f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 71.3017f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 71.9940f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 72.9170f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 73.8400f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 74.0707f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 74.7630f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 74.9937f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 75.6860f });
+
+    }
+
+    private void OnEnable()
+    {
+        touchManager.OnTap += TouchManager_OnScreenTouched;
+        touchManager.OnTapReleased += TouchManager_OnScreenReleased;
+        touchManager.OnSwipeUp += TouchManager_OnSwipeUp;
+        touchManager.OnSwipeDown += TouchManager_OnSwipeDown;
+    }
+
+    private void OnDisable()
+    {
+        touchManager.OnTap -= TouchManager_OnScreenTouched;
+        touchManager.OnTapReleased -= TouchManager_OnScreenReleased;
+        touchManager.OnSwipeUp -= TouchManager_OnSwipeUp;
+        touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+
+        }
+        ClearInactiveNotes();
+
+        currentSongPosition = conductor.currentSongPosition;
+        Debug.Log(currentSongPosition);
+
+       
+
+        while (spawnIndex < noteDataList.Count && noteDataList[spawnIndex].hitTiming <= currentSongPosition + approachRate)
+        {
+            SpawnNote(noteDataList[spawnIndex]);
+            spawnIndex++;
+        }
+    }
+
+    public void SpawnNote(NoteData noteData)
+    {
+        Note prefab = null;
+        if (noteData.type == NoteType.Tap)
+        {
+            prefab = tapNotePrefab;
+        }
+        if (noteData.type == NoteType.SwipeUp)
+        {
+            prefab = tapNotePrefab;
+        }
+        if (prefab != null)
+        {
+            Note note = Instantiate(prefab);
+            note.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
+            activeNotesList.Add(note);
+        }
+
+    }
+
+    void ClearInactiveNotes()
+    {
+        for (int i = activeNotesList.Count - 1; i >= 0; i--)
+        {
+            Note note = activeNotesList[i];
+
+            if (note == null)
+            {
+                activeNotesList.RemoveAt(i);
+                continue;
+            }
+
+            float timeSinceNote = currentSongPosition - note.hitTiming;
+            if (timeSinceNote > missWindow)
+            {
+                Debug.Log("AUTO MISS");
+                scoreText.color = Color.red;
+                scoreText.text = "MISS";
+                Destroy(note.gameObject);
+                activeNotesList.RemoveAt(i);
+            }
+        }
+    }
+
+    public Note GetClosestNote(NoteType type)
+    {
+        Note closestNote = null;
+        float closestHitTiming = float.MaxValue;
+        foreach (var note in activeNotesList)
+        {
+            if (note.type != type) continue;
+            float hitTimingOffset = Mathf.Abs(currentSongPosition - note.hitTiming);
+
+            if (hitTimingOffset < -perfectWindow) continue;
+
+            if (hitTimingOffset < closestHitTiming)
+            {
+                closestHitTiming = hitTimingOffset;
+                closestNote = note;
+            }
+        }
+        return closestNote;
+    }
+
+    public void CheckNoteHitTiming(NoteType type)
+    {
+        Note closestNote = GetClosestNote(type);
+        if (closestNote == null) return;
+
+        float hitTimingOffset = Mathf.Abs(currentSongPosition - closestNote.hitTiming);
+
+        if (hitTimingOffset <= perfectWindow)
+        {
+            Debug.Log("PERFECT");
+            scoreText.color = Color.green;
+            scoreText.text = ("PERFECT");
+            Destroy(closestNote.gameObject);
+        }
+        else
+        {
+            Debug.Log("MISS");
+            scoreText.color = Color.red;
+            scoreText.text = ("MISS");
+            Destroy(closestNote.gameObject);
+        }
+    }
+
+    private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
+    {
+        Debug.Log("Touch detected");
+
+        if (!touchManager.swipeJustDetected)
+        {
+            CheckNoteHitTiming(NoteType.Tap);
+        }
+    }
+
+    private void TouchManager_OnScreenReleased(object sender, System.EventArgs e)
+    {
+        //SpriteRenderer.sprite = defaultImage;
+    }
+
+    private void TouchManager_OnSwipeUp(object sender, System.EventArgs e)
+    {
+        CheckNoteHitTiming(NoteType.SwipeUp);
+    }
+
+    private void TouchManager_OnSwipeDown(object sender, System.EventArgs e)
+    {
+        CheckNoteHitTiming(NoteType.SwipeDown);
+    }
+
+}
