@@ -56,17 +56,18 @@ public class TouchManager : MonoBehaviour
         if (swipe.magnitude > minimumDistance &&
             (endTouchTime - startTouchTime) <= maximumTime) //how long swipe last is <= max time else its a hold not swipe
         {
-            if (swipe.y > Math.Abs(swipe.x))
+            if (Mathf.Abs(swipe.y) > Math.Abs(swipe.x))
             {
-                swipeJustDetected = true;
-                Debug.Log("Swipe Up Detected");
-                OnSwipeUp?.Invoke(this, EventArgs.Empty);
-            }
-            else
-            {
-                swipeJustDetected = true;
-                Debug.Log("Swipe Down Detected");
-                OnSwipeDown?.Invoke(this, EventArgs.Empty);
+                if (swipe.y > 0)
+                {
+                    Debug.Log("Swipe Up Detected");
+                    OnSwipeUp?.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    Debug.Log("Swipe Down Detected");
+                    OnSwipeDown?.Invoke(this, EventArgs.Empty);
+                }
             }
             
         }

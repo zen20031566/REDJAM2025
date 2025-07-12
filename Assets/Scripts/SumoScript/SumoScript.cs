@@ -16,7 +16,8 @@ public class SumoScript : MonoBehaviour
     [SerializeField] private AudioClip song;
     [SerializeField] private AudioClip tapPerfectSound;
     [SerializeField] private AudioClip tapMissSound;
-    [SerializeField] private AudioClip swipePerfectSound;
+    [SerializeField] private AudioClip swipeUpPerfectSound;
+    [SerializeField] private AudioClip swipeDownPerfectSound;
     [SerializeField] private AudioClip swipeMissSound;
     [SerializeField] private AudioClip shoutSound;
     public List<NoteData> noteDataList = new();
@@ -118,24 +119,24 @@ public class SumoScript : MonoBehaviour
         //noteDataList.Add(new NoteData { type = NoteType.SwipeDown, hitTiming = 33.2280f });//Down
 
         noteDataList.Add(new NoteData { type = NoteType.Shout, hitTiming = 33.2280f }); // shout
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 34.1510f });   // up
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 35.0740f });   // down
+        noteDataList.Add(new NoteData { type = NoteType.SwipeUp, hitTiming = 34.1510f });   // up
+        noteDataList.Add(new NoteData { type = NoteType.SwipeDown, hitTiming = 35.0740f });   // down
 
         noteDataList.Add(new NoteData { type = NoteType.Shout, hitTiming = 35.9970f }); // shout
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 36.9200f });   // up
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 37.8430f });   // down
+        noteDataList.Add(new NoteData { type = NoteType.SwipeUp, hitTiming = 36.9200f });   // up
+        noteDataList.Add(new NoteData { type = NoteType.SwipeDown, hitTiming = 37.8430f });   // down
 
         noteDataList.Add(new NoteData { type = NoteType.Shout, hitTiming = 38.7660f }); // shout
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 39.6890f });   // up
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 40.6120f });   // down
+        noteDataList.Add(new NoteData { type = NoteType.SwipeUp, hitTiming = 39.6890f });   // up
+        noteDataList.Add(new NoteData { type = NoteType.SwipeDown, hitTiming = 40.6120f });   // down
 
         noteDataList.Add(new NoteData { type = NoteType.Shout, hitTiming = 41.5350f }); // shout
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 42.4580f });   // up
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 43.3810f });   // down
+        noteDataList.Add(new NoteData { type = NoteType.SwipeUp, hitTiming = 42.4580f });   // up
+        noteDataList.Add(new NoteData { type = NoteType.SwipeDown, hitTiming = 43.3810f });   // down
 
         noteDataList.Add(new NoteData { type = NoteType.Shout, hitTiming = 44.3040f });//shout
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 45.2270f });//up   
-        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 46.1500f });//down*/
+        noteDataList.Add(new NoteData { type = NoteType.SwipeUp, hitTiming = 45.2270f });//up   
+        noteDataList.Add(new NoteData { type = NoteType.SwipeDown, hitTiming = 46.1500f });//down*/
 
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 47.0730f });
 
@@ -225,7 +226,7 @@ public class SumoScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            conductor.Setup(song, bpm, 0f);
+            conductor.Setup(song, bpm, 29f);
         }
         ClearInactiveNotes();
 
@@ -242,8 +243,8 @@ public class SumoScript : MonoBehaviour
 
         {
                 StartCoroutine(PlayShoutDelayed(0.923f)); // Play shout sound instead of spawning
-            }
-            else
+        }
+        else
         {
             SpawnNote(note);  // Spawn normal note
         }
@@ -255,15 +256,13 @@ public class SumoScript : MonoBehaviour
     public void SpawnNote(NoteData noteData)
     {
         Note prefab = null;
-        if (noteData.type == NoteType.Tap)
+        if (noteData.type == NoteType.Tap ||
+            noteData.type == NoteType.SwipeUp ||
+            noteData.type == NoteType.SwipeDown)
         {
-            prefab = tapNotePrefab;
+            prefab = tapNotePrefab; // Assuming same prefab for all
         }
-        if (noteData.type == NoteType.SwipeUp)
-        {
-            prefab = tapNotePrefab;
-        }
-        if (prefab != null)
+
         {
             Note note = Instantiate(prefab);
             note.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
@@ -341,9 +340,13 @@ public class SumoScript : MonoBehaviour
                 sfxAudioSource.PlayOneShot(tapPerfectSound);
             }
                 
-            else if (type == NoteType.SwipeUp || type == NoteType.SwipeDown)
+            else if (type == NoteType.SwipeUp)
             {
-                sfxAudioSource.PlayOneShot(swipePerfectSound);
+                sfxAudioSource.PlayOneShot(swipeUpPerfectSound);
+            }
+            else if (type == NoteType.SwipeDown)
+            {
+                sfxAudioSource.PlayOneShot(swipeDownPerfectSound);
             }
         }
         else

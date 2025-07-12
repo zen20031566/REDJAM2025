@@ -551,8 +551,9 @@ MonoBehaviour:
   song: {fileID: 8300000, guid: 3db8b32bd3a1527499865fee287ab29b, type: 3}
   tapPerfectSound: {fileID: 8300000, guid: d1d6cb5cd8f58e744b176e5cb941a1d7, type: 3}
   tapMissSound: {fileID: 8300000, guid: 93ad7ac3094b2f34eb5bd6cc81a61d38, type: 3}
-  swipePerfectSound: {fileID: 0}
-  swipeMissSound: {fileID: 0}
+  swipeUpPerfectSound: {fileID: 8300000, guid: 79d7e2030574d2443872b0a78d59d498, type: 3}
+  swipeDownPerfectSound: {fileID: 8300000, guid: 1c6c78c9d90f46a4493f75f1c71d5aac, type: 3}
+  swipeMissSound: {fileID: 8300000, guid: 93ad7ac3094b2f34eb5bd6cc81a61d38, type: 3}
   shoutSound: {fileID: 8300000, guid: c0a603a05a406da4abd6c297adac24b0, type: 3}
   perfectWindow: 0.2
   missWindow: 0.12
