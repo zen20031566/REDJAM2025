@@ -11,7 +11,7 @@ public class TouchManager : MonoBehaviour
     private bool swipeJustDetected = false;
 
     public event EventHandler OnTap;
-    public event EventHandler OnScreenReleased;
+    public event EventHandler OnTapReleased;
     public event EventHandler OnSwipeUp;
     public event EventHandler OnSwipeDown;
 
@@ -78,7 +78,7 @@ public class TouchManager : MonoBehaviour
             OnTap?.Invoke(this, EventArgs.Empty);
         }
 
-        OnScreenReleased?.Invoke(this, EventArgs.Empty);
+        OnTapReleased?.Invoke(this, EventArgs.Empty);
         Debug.Log("Tap Releasedd");
 
     }
