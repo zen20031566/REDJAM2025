@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ecb61ed61648a554bb41ccb2cb9e7a83
+guid: 3b2577ce6e3532a44b2dc290e0ec2348
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 862135143057395024
-    second: bam_sushi_0
+      213: 2742732686037036156
+    second: Tappy_climb_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bam_sushi_0
+      name: Tappy_climb_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 976
-        height: 838
+        x: 193
+        y: 52
+        width: 595
+        height: 922
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05d0156485be6fb00800000000000000
-      internalID: 862135143057395024
+      spriteID: c7c2719a8d4201620800000000000000
+      internalID: 2742732686037036156
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      bam_sushi_0: 862135143057395024
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

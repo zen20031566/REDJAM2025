@@ -1,46 +1,10 @@
 fileFormatVersion: 2
-guid: f1a1afc612b4aa7449f32edb498ac558
+guid: 6ec3895380324c542a6291727d9084ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6771482941915710753
-    second: belt_0
-  - first:
-      213: -359016558506663296
-    second: belt_1
-  - first:
-      213: 448724516084868706
-    second: belt_2
-  - first:
-      213: 2518170658075647055
-    second: belt_3
-  - first:
-      213: 3977785880076024531
-    second: belt_4
-  - first:
-      213: 3050073909692940538
-    second: belt_5
-  - first:
-      213: -2369173653778013512
-    second: belt_6
-  - first:
-      213: -548862237855480430
-    second: belt_7
-  - first:
-      213: 7683537262386601802
-    second: belt_8
-  - first:
-      213: 7397242870985651149
-    second: belt_9
-  - first:
-      213: 404231848315823659
-    second: belt_10
-  - first:
-      213: -9189740829507213339
-    second: belt_11
-  - first:
-      213: 3003695458623005156
-    second: belt_12
+      213: -4575889938362638276
+    second: wasabi_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -162,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: belt_0
+      name: wasabi_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 564
+        x: 149
+        y: 46
+        width: 258
+        height: 305
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b80d5e74a53d2bf4bba6a147690558b3
-      internalID: -1383674252
+      spriteID: c306c9c585c2f70c0800000000000000
+      internalID: -4575889938362638276
       vertices: []
       indices: 
       edges: []
@@ -187,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 459c2550933c89840b27d437ec272641
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -196,9 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      belt_0: -1383674252
-      belt_13: -1542410798
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

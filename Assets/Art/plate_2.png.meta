@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e77a7dfde198ec241a49cbd2d83f84bf
+guid: dd66b9d5e8b3f1741b00a3c73f972fec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6583211601361217499
-    second: Tappy1_0
+      213: 7349223683580781731
+    second: plate_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tappy1_0
+      name: plate_2_0
       rect:
         serializedVersion: 2
-        x: 198
-        y: 54
-        width: 586
-        height: 916
+        x: 0
+        y: 0
+        width: 574
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52852ab8debb3a4a0800000000000000
-      internalID: -6583211601361217499
+      spriteID: 3a468ba9000bdf560800000000000000
+      internalID: 7349223683580781731
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Tappy1_0: -6583211601361217499
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
