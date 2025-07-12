@@ -1,24 +1,45 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using System.Collections.Generic;
+using TMPro;
 
-public class ButtonController : MonoBehaviour
+public class NoteManager : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer SpriteRenderer;
+    public Conductor conductor;
+    private float currentSongPosition;
+
+    [SerializeField] private float perfectWindow;
+    [SerializeField] private float missWindow;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform hitPoint;
+    [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TouchManager touchManager;
-    [SerializeField] private Conductor conductor;
-    [SerializeField] AudioClip song;
-    [SerializeField] float bpm;
+    [SerializeField] private Note tapNotePrefab;
+    [SerializeField] private AudioClip song;
+    [SerializeField] int bpm;
+    [SerializeField] private TextAsset hitTimingsTextAsset;
 
-    public Sprite defaultImage;
-    public Sprite pressedImage;
+    public List<NoteData> noteDataList = new();
+    public float approachRate;
 
-    private float startTime;
-    private float perfectWindow = 0.5f;
+    public List<Note> activeNotesList = new();
+    private int spawnIndex = 0;
 
-    List<Note> notes = new List<Note>();
+    float hittiming = 0f;
+    private void Start()
+    {
+        conductor.Setup(song, bpm);
 
-    private Vector2 startTouchPos;
+        for (int i = 0; i < 100; i++)
+        {
+            hittiming += conductor.crotchet;
+
+            noteDataList.Add(new NoteData
+            {
+                type = NoteType.SwipeUp,
+                hitTiming = hittiming,
+            });
+        }
+    }
 
     private void OnEnable()
     {
@@ -34,103 +55,126 @@ public class ButtonController : MonoBehaviour
         touchManager.OnSwipeUp -= TouchManager_OnSwipeUp;
     }
 
-    void Setup()
+    private void Update()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        ClearInactiveNotes();
 
-        startTime = conductor.dspSongStartTime;
-        conductor.Setup(song, bpm);
+        currentSongPosition = conductor.currentSongPosition;
 
-        notes.Add(new Note { time = 0.8f, hit = false, type = NoteType.SwipeUp });
-        notes.Add(new Note { time = 1.6f, hit = false, type = NoteType.SwipeUp });
-        notes.Add(new Note { time = 2.4f, hit = false, type = NoteType.SwipeUp });
-        notes.Add(new Note { time = 3.2f, hit = false, type = NoteType.SwipeUp });
-        notes.Add(new Note { time = 4.0f, hit = false, type = NoteType.SwipeUp });
-        notes.Add(new Note { time = 4.8f, hit = false, type = NoteType.SwipeUp });
+        while (spawnIndex < noteDataList.Count && noteDataList[spawnIndex].hitTiming <= currentSongPosition + approachRate)
+        {
+            SpawnNote(noteDataList[spawnIndex]);
+            spawnIndex++;
+        }
     }
 
-    void Update()
+    public void SpawnNote(NoteData noteData)
     {
-        float currentTime = conductor.currentSongPosition;
-
-        foreach (Note note in notes)
+        Note prefab = null;
+        if (noteData.type == NoteType.Tap)
         {
-            if (note.hit) continue;
-
-            //If player missed the note (time already passed and they didnnt touch it)
-            if (currentTime > note.time + perfectWindow)
-            {
-                note.hit = true;      //note lock
-                ShowResult(0);        //fail
-            }
+            prefab = tapNotePrefab;
+        }
+        if (noteData.type == NoteType.SwipeUp)
+        {
+            prefab = tapNotePrefab;
+        }
+        if (prefab != null)
+        {
+            Note note = Instantiate(prefab);
+            note.Setup(conductor, this, spawnPoint, hitPoint, noteData);
+            activeNotesList.Add(note);
         }
 
     }
-    private void NoteHitChecker(NoteType inputType)
+
+    void ClearInactiveNotes()
     {
-        float currentTime = Time.time - startTime;
-        Note closestNote = null;
-        float closestDifference = Mathf.Infinity;
-
-        //Go through each note and check whether player perfect or fail
-        foreach (Note note in notes)
+        for (int i = activeNotesList.Count - 1; i >= 0; i--)
         {
-            if (note.hit || note.type != inputType) continue;
+            Note note = activeNotesList[i];
 
-            float difference = Mathf.Abs(currentTime - note.time);
-            if (difference < closestDifference)
+            if (note == null)
             {
-                closestDifference = difference;
+                activeNotesList.RemoveAt(i);
+                continue;
+            }
+
+            float timeSinceNote = currentSongPosition - note.hitTiming;
+            if (timeSinceNote > missWindow)
+            {
+                Debug.Log("AUTO MISS");
+                scoreText.color = Color.red;
+                scoreText.text = "MISS";
+                Destroy(note.gameObject);
+                activeNotesList.RemoveAt(i);
+            }
+        }
+    }
+
+    public Note GetClosestNote(NoteType type)
+    {
+        Note closestNote = null;
+        float closestHitTiming = float.MaxValue;
+        foreach (var note in activeNotesList)
+        {
+            if (note.type != type) continue;
+            float hitTimingOffset = Mathf.Abs(currentSongPosition - note.hitTiming);
+
+            if (hitTimingOffset < - perfectWindow) continue;
+
+            if (hitTimingOffset < closestHitTiming)
+            {
+                closestHitTiming = hitTimingOffset;
                 closestNote = note;
             }
         }
+        return (closestHitTiming <= missWindow) ? closestNote : null;
+    }
 
-        if (closestNote != null && closestDifference <= perfectWindow)
+    public void CheckNoteHitTiming(NoteType type)
+    {
+        Note closestNote = GetClosestNote(type);
+        if (closestNote == null) return;
+
+        if (closestNote.type == NoteType.Tap)
         {
-            closestNote.hit = true;
-            ShowResult(1); //Perfect
-        }
-        else
-        {
-            ShowResult(0); //fail
+            float hitTimingOffset = Mathf.Abs(currentSongPosition - closestNote.hitTiming);
+            if (hitTimingOffset <= perfectWindow)
+            {
+                Debug.Log("PERFECT");
+                scoreText.color = Color.green;
+                scoreText.text = ("PERFECT");
+                Destroy(closestNote.gameObject);
+            }
+            else
+            {
+                Debug.Log("MISS");
+                scoreText.color = Color.red;
+                scoreText.text = ("MISS");
+                Destroy(closestNote.gameObject);
+            }
         }
     }
 
-    //Just to show perfect or fail, i just seperate the logics
-    void ShowResult(int result)
+private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
     {
-        if (result == 1)
-        {
-            Debug.Log("Perfect");
-            SpriteRenderer.sprite = pressedImage;
-        }
-        else
-        {
-            Debug.Log("fail");
-            SpriteRenderer.sprite = defaultImage;
-        }
-    }
-
-    private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
-    {
-        Debug.Log("Touch detected in ButtonController!");
+        Debug.Log("Touch detected");
 
         if (!touchManager.swipeJustDetected)
         {
-            NoteHitChecker(NoteType.Tap);
+            CheckNoteHitTiming(NoteType.Tap);
         }
     }
 
     private void TouchManager_OnScreenReleased(object sender, System.EventArgs e)
     {
-        SpriteRenderer.sprite = defaultImage;
+        //SpriteRenderer.sprite = defaultImage;
     }
 
     private void TouchManager_OnSwipeUp(object sender, System.EventArgs e)
     {
-        NoteHitChecker(NoteType.SwipeUp);
+        CheckNoteHitTiming(NoteType.SwipeUp);
     }
-
-
 
 }
