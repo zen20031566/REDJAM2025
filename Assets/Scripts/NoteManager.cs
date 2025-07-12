@@ -174,6 +174,33 @@ public class NoteManager : MonoBehaviour
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 62.9947f });//double
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 63.6870f });   
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 63.9177f });//double*/
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 64.6100f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 65.5330f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 66.4560f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 66.6867f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 67.3790f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 67.6097f });//double*/
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 68.3020f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 69.2250f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 70.1480f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 70.3787f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 71.0710f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 71.3017f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 71.9940f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 72.9170f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 73.8400f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 74.0707f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 74.7630f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 74.9937f });//double
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 75.6860f });
+
     }
 
     private void OnEnable()
@@ -196,7 +223,7 @@ public class NoteManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            conductor.Setup(song, bpm, 55f);
+            conductor.Setup(song, bpm, 0f);
         }
         ClearInactiveNotes();
         
