@@ -18,7 +18,7 @@ public class Conductor : MonoBehaviour
         musicSource.clip = song;
         crotchet = 60f / bpm;
         dspSongStartTime = (float)AudioSettings.dspTime;
-        Debug.Log($"Song started at: {dspSongStartTime}");
+        Debug.Log($"Song started at {dspSongStartTime}");
         musicSource.Play();
     }
 
