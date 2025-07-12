@@ -179,13 +179,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1383674252, guid: f1a1afc612b4aa7449f32edb498ac558, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -6635195210692368757, guid: 815dbf22a92e1e54baa2edf29429f1d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.2, y: 5.64}
+  m_Size: {x: 19.2, y: 5.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 22254960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039999723, y: -4.2, z: 0}
+  m_LocalPosition: {x: 0.6399996, y: -4.19, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -345,7 +345,7 @@ MonoBehaviour:
   playerSprite2: {fileID: 862135143057395024, guid: ecb61ed61648a554bb41ccb2cb9e7a83, type: 3}
   belt1: {fileID: 22254962}
   belt2: {fileID: 1922345198}
-  moveAmount: 1
+  moveAmount: 1.56
   beltWidth: 0
   bobAmount: 0.2
 --- !u!1 &176312292
@@ -879,6 +879,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1435045803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1435045805}
+  - component: {fileID: 1435045804}
+  m_Layer: 0
+  m_Name: belt_0 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1435045804
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435045803}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -6635195210692368757, guid: 815dbf22a92e1e54baa2edf29429f1d2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 19.2, y: 5.62}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1435045805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435045803}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.64, y: -4.19, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524524855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,8 +1202,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1383674252, guid: f1a1afc612b4aa7449f32edb498ac558, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -6635195210692368757, guid: 815dbf22a92e1e54baa2edf29429f1d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1136,7 +1223,7 @@ Transform:
   m_GameObject: {fileID: 1922345196}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.64, y: -4.19, z: 0}
+  m_LocalPosition: {x: -7.04, y: -4.19, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1258,26 +1345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec575655064a5446bc4d1e793b207d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conductor: {fileID: 757513886}
-  bpm: 64
-  song: {fileID: 8300000, guid: 12b904d7a0fd7514a846a14ca05d2177, type: 3}
-  perfectWindow: 0.3
-  missWindow: 0.15
-  touchManager: {fileID: 39810275}
-  spawnPoint: {fileID: 151994875}
-  hitPoint: {fileID: 1944706227}
-  scoreText: {fileID: 1524524856}
-  tapNotePrefab: {fileID: 4643230748843657634, guid: 38fcdea93ee9b1d48a38aa0ff98ff2f7, type: 3}
-  activeNotesList: []
-  approachRate: 1
-  player: {fileID: 1095889158}
-  playerSprite1: {fileID: -6583211601361217499, guid: e77a7dfde198ec241a49cbd2d83f84bf, type: 3}
-  playerSprite2: {fileID: 549575629239848526, guid: ebc526d13b3a50e4ea88776bf860bbf3, type: 3}
-  bg1: {fileID: 2103664172}
-  bg2: {fileID: 501025951}
-  scrollSpeed: 2
-  bgHeight: 10
-  bobAmount: 0.5
 --- !u!4 &1979878492
 Transform:
   m_ObjectHideFlags: 0
@@ -1456,4 +1523,5 @@ SceneRoots:
   - {fileID: 1333043889}
   - {fileID: 176312294}
   - {fileID: 22254962}
+  - {fileID: 1435045805}
   - {fileID: 1922345198}
