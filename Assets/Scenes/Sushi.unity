@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 391779134}
   - component: {fileID: 391779135}
   m_Layer: 0
-  m_Name: belt_0 (1)
+  m_Name: SushiBelt2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 916838571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.92, y: 0.37, z: 0}
+  m_LocalPosition: {x: 2.32, y: -1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 1101485730}
   - component: {fileID: 1101485729}
   m_Layer: 0
-  m_Name: sushi_background_0
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,7 +836,7 @@ Transform:
   m_GameObject: {fileID: 1500223207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.38, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 1666441570}
   - component: {fileID: 1666441571}
   m_Layer: 0
-  m_Name: bam_sushi_0
+  m_Name: Bam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 1671176337}
   - component: {fileID: 1671176336}
   m_Layer: 0
-  m_Name: belt_0
+  m_Name: SushiBelt1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1241,9 +1241,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 442925336}
-  - {fileID: 1500223208}
   - {fileID: 50983147}
-  - {fileID: 916838572}
-  - {fileID: 1898897883}
   - {fileID: 807450400}
   - {fileID: 348773937}
+  - {fileID: 1500223208}
+  - {fileID: 916838572}
+  - {fileID: 1898897883}
