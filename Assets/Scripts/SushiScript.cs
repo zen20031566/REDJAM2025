@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class SushiScript : MonoBehaviour
 {
     //song related
@@ -80,6 +81,10 @@ public class SushiScript : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            SceneManager.LoadScene("ZenYoungTest");
+        }
 
         if (conductor.currentSongPosition > nextHalfBeat + conductor.crotchet)
         {

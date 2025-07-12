@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class ClimbScript : MonoBehaviour
 {
     //song related
@@ -81,6 +82,10 @@ public class ClimbScript : MonoBehaviour
     private void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            SceneManager.LoadScene("Sushi");
+        }
         //Move head bob 
         if (conductor.currentSongPosition > lastBeat + conductor.crotchet)
         {
