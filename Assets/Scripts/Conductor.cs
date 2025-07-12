@@ -12,7 +12,7 @@ public class Conductor : MonoBehaviour
 
     public float dspSongStartTime; //unity internal timer for its audio system called dspTime not tied to your frame rate or Time.time for precise audio sync
 
-    void Setup(AudioClip song, float bpm)
+    public void Setup(AudioClip song, float bpm)
     {
         musicSource.Stop();
         musicSource.clip = song;

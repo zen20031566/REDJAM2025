@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ButtonController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private TouchManager touchManager;
     [SerializeField] private Conductor conductor;
     [SerializeField] AudioClip song;
+    [SerializeField] float bpm;
 
     public Sprite defaultImage;
     public Sprite pressedImage;
@@ -37,6 +39,7 @@ public class ButtonController : MonoBehaviour
         SpriteRenderer = GetComponent<SpriteRenderer>();
 
         startTime = conductor.dspSongStartTime;
+        conductor.Setup(song, bpm);
 
         notes.Add(new Note { time = 0.8f, hit = false, type = NoteType.SwipeUp });
         notes.Add(new Note { time = 1.6f, hit = false, type = NoteType.SwipeUp });
