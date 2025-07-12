@@ -5,7 +5,8 @@ public class ButtonController : MonoBehaviour
 {
     [SerializeField] SpriteRenderer SpriteRenderer;
     [SerializeField] private TouchManager touchManager;
-    [SerializeField]  private Conductor conductor;
+    [SerializeField] private Conductor conductor;
+    [SerializeField] AudioClip song;
 
     public Sprite defaultImage;
     public Sprite pressedImage;
