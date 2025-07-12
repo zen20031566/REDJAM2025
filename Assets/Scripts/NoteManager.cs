@@ -42,7 +42,7 @@ public class NoteManager : MonoBehaviour
     float hittiming = 0f;       
     private void Start()
     {
-        conductor.Setup(song, bpm, 43f);
+        
         noteDataList = noteDataList.FindAll(note => note.hitTiming >= 30f);
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 3.6920f });
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 4.6150f });
@@ -158,6 +158,22 @@ public class NoteManager : MonoBehaviour
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 56.3030f });
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 56.5337f });//double
 
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 57.2260f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 58.1490f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 59.0720f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 59.3027f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 59.9950f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 60.2257f });//double
+
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 60.9180f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 61.8410f });
+
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 62.7640f });
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 62.9947f });//double
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 63.6870f });   
+        noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 63.9177f });//double*/
     }
 
     private void OnEnable()
@@ -178,6 +194,10 @@ public class NoteManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            conductor.Setup(song, bpm, 55f);
+        }
         ClearInactiveNotes();
         
         currentSongPosition = conductor.currentSongPosition;
