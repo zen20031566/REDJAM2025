@@ -30,6 +30,13 @@ public class Swipe : MonoBehaviour
             rb.linearVelocity = swipeDir * swipeSpeed;
             hasSwiped = true; // prevent multiple swipes
         }
+
+        // Only trigger swipe if moved enough
+        if ((endTouchPos - startTouchPos).magnitude > 0.3f)
+        {
+            Vector2 swipeDir = (endTouchPos - startTouchPos).normalized;
+            rb.linearVelocity = swipeDir * swipeSpeed;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
