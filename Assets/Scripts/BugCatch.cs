@@ -46,6 +46,7 @@ public class NoteManager : MonoBehaviour
         touchManager.OnTap += TouchManager_OnScreenTouched;
         touchManager.OnTapReleased += TouchManager_OnScreenReleased;
         touchManager.OnSwipeUp += TouchManager_OnSwipeUp;
+        touchManager.OnSwipeDown += TouchManager_OnSwipeDown;
     }
 
     private void OnDisable()
@@ -53,6 +54,7 @@ public class NoteManager : MonoBehaviour
         touchManager.OnTap -= TouchManager_OnScreenTouched;
         touchManager.OnTapReleased -= TouchManager_OnScreenReleased;
         touchManager.OnSwipeUp -= TouchManager_OnSwipeUp;
+        touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
     }
 
     private void Update()
@@ -137,23 +139,20 @@ public class NoteManager : MonoBehaviour
         Note closestNote = GetClosestNote(type);
         if (closestNote == null) return;
 
-        if (closestNote.type == NoteType.Tap)
+        float hitTimingOffset = Mathf.Abs(currentSongPosition - closestNote.hitTiming);
+        if (hitTimingOffset <= perfectWindow)
         {
-            float hitTimingOffset = Mathf.Abs(currentSongPosition - closestNote.hitTiming);
-            if (hitTimingOffset <= perfectWindow)
-            {
-                Debug.Log("PERFECT");
-                scoreText.color = Color.green;
-                scoreText.text = ("PERFECT");
-                Destroy(closestNote.gameObject);
-            }
-            else
-            {
-                Debug.Log("MISS");
-                scoreText.color = Color.red;
-                scoreText.text = ("MISS");
-                Destroy(closestNote.gameObject);
-            }
+            Debug.Log("PERFECT");
+            scoreText.color = Color.green;
+            scoreText.text = ("PERFECT");
+            Destroy(closestNote.gameObject);
+        }
+        else
+        {
+            Debug.Log("MISS");
+            scoreText.color = Color.red;
+            scoreText.text = ("MISS");
+            Destroy(closestNote.gameObject);
         }
     }
 
@@ -175,6 +174,11 @@ private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
     private void TouchManager_OnSwipeUp(object sender, System.EventArgs e)
     {
         CheckNoteHitTiming(NoteType.SwipeUp);
+    }
+
+    private void TouchManager_OnSwipeDown(object sender, System.EventArgs e)
+    {
+        CheckNoteHitTiming(NoteType.SwipeDown);
     }
 
 }
