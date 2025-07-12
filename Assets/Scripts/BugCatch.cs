@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.U2D;
 
 public class NoteManager : MonoBehaviour
 {
@@ -17,7 +18,12 @@ public class NoteManager : MonoBehaviour
     [SerializeField] private AudioClip song;
     [SerializeField] int bpm;
     [SerializeField] private TextAsset hitTimingsTextAsset;
-    [SerializeField] Transform Player;
+    [SerializeField] Transform player;
+
+    public Transform bg1;
+    public Transform bg2;
+    public float scrollSpeed = 1f;
+    public float bgHeight;
 
     public List<NoteData> noteDataList = new();
     public float approachRate;
@@ -28,6 +34,7 @@ public class NoteManager : MonoBehaviour
     float hittiming = 0f;
     private void Start()
     {
+        bgHeight = bg1.GetComponent<SpriteRenderer>().bounds.size.y;
         conductor.Setup(song, bpm);
 
         for (int i = 0; i < 100; i++)
@@ -147,6 +154,9 @@ public class NoteManager : MonoBehaviour
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
             Destroy(closestNote.gameObject);
+            Climb();
+
+            
         }
         else
         {
@@ -156,6 +166,25 @@ public class NoteManager : MonoBehaviour
             Destroy(closestNote.gameObject);
         }
     }
+
+    private void Climb()
+    {
+        bg1.position += Vector3.down * scrollSpeed;
+        bg2.position += Vector3.down * scrollSpeed;
+
+        if (bg1.position.y <= -bgHeight)
+        {
+            bg1.position = new Vector3(bg1.position.x, bg2.position.y + bgHeight, bg1.position.z);
+        }
+
+        // If bg2 moves below the screen, move it above bg1
+        if (bg2.position.y <= -bgHeight)
+        {
+            bg2.position = new Vector3(bg2.position.x, bg1.position.y + bgHeight, bg2.position.z);
+        }
+    }
+
+
 
 private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
     {
