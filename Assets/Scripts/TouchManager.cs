@@ -8,7 +8,7 @@ public class TouchManager : MonoBehaviour
 
     [SerializeField] private float minimumDistance = 50f;
     [SerializeField] private float maximumTime = 1f;
-    private bool swipeJustDetected = false;
+    public bool swipeJustDetected = false;
 
     public event EventHandler OnTap;
     public event EventHandler OnTapReleased;
