@@ -17,6 +17,7 @@ public class NoteManager : MonoBehaviour
     [SerializeField] private AudioClip song;
     [SerializeField] int bpm;
     [SerializeField] private TextAsset hitTimingsTextAsset;
+    [SerializeField] Transform Player;
 
     public List<NoteData> noteDataList = new();
     public float approachRate;
