@@ -1,46 +1,46 @@
 fileFormatVersion: 2
-guid: 68ca30bbd68e06e40b6ca0d2e4450b40
+guid: 815dbf22a92e1e54baa2edf29429f1d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6771482941915710753
-    second: belt_0
+      213: -6635195210692368757
+    second: sushi_belt_0
   - first:
-      213: -359016558506663296
-    second: belt_1
+      213: -3571103934530344539
+    second: sushi_belt_1
   - first:
-      213: 448724516084868706
-    second: belt_2
+      213: -8412818343338601372
+    second: sushi_belt_2
   - first:
-      213: 2518170658075647055
-    second: belt_3
+      213: 8468204868537852786
+    second: sushi_belt_3
   - first:
-      213: 3977785880076024531
-    second: belt_4
+      213: 1301115927291659062
+    second: sushi_belt_4
   - first:
-      213: 3050073909692940538
-    second: belt_5
+      213: 5364260793012687766
+    second: sushi_belt_5
   - first:
-      213: -2369173653778013512
-    second: belt_6
+      213: 2245638421972589735
+    second: sushi_belt_6
   - first:
-      213: -548862237855480430
-    second: belt_7
+      213: -1069266597412583077
+    second: sushi_belt_7
   - first:
-      213: 7683537262386601802
-    second: belt_8
+      213: -5171995137360559381
+    second: sushi_belt_8
   - first:
-      213: 7397242870985651149
-    second: belt_9
+      213: 5489961022597161381
+    second: sushi_belt_9
   - first:
-      213: 404231848315823659
-    second: belt_10
+      213: -9144532348706336294
+    second: sushi_belt_10
   - first:
-      213: -9189740829507213339
-    second: belt_11
+      213: 2387793139601453624
+    second: sushi_belt_11
   - first:
-      213: 3003695458623005156
-    second: belt_12
+      213: 8265490208235159359
+    second: sushi_belt_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -201,7 +201,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: belt_0
+      name: sushi_belt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fda3f74242cd602a0800000000000000
-      internalID: -6771482941915710753
+      spriteID: b86ee435c1d0be3a0800000000000000
+      internalID: -6635195210692368757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_1
+      name: sushi_belt_1
       rect:
         serializedVersion: 2
         x: 523
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0822ab99754840bf0800000000000000
-      internalID: -359016558506663296
+      spriteID: 5a9a15e54e3e07ec0800000000000000
+      internalID: -3571103934530344539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_2
+      name: sushi_belt_2
       rect:
         serializedVersion: 2
         x: 554
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2666f37e1903a3600800000000000000
-      internalID: 448724516084868706
+      spriteID: 464996d2a4aaf3b80800000000000000
+      internalID: -8412818343338601372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_3
+      name: sushi_belt_3
       rect:
         serializedVersion: 2
         x: 1300
@@ -282,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4c19662fd652f220800000000000000
-      internalID: 2518170658075647055
+      spriteID: 273ae62267b158570800000000000000
+      internalID: 8468204868537852786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_4
+      name: sushi_belt_4
       rect:
         serializedVersion: 2
         x: 1316
@@ -304,14 +304,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3dafe76ce2fe33730800000000000000
-      internalID: 3977785880076024531
+      spriteID: 63382d1da0e7e0210800000000000000
+      internalID: 1301115927291659062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_5
+      name: sushi_belt_5
       rect:
         serializedVersion: 2
         x: 610
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af04fe59f0a045a20800000000000000
-      internalID: 3050073909692940538
+      spriteID: 693931a25cea17a40800000000000000
+      internalID: 5364260793012687766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_6
+      name: sushi_belt_6
       rect:
         serializedVersion: 2
         x: 617
@@ -348,14 +348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b2e8534d110f1fd0800000000000000
-      internalID: -2369173653778013512
+      spriteID: 7ac15a33f3c1a2f10800000000000000
+      internalID: 2245638421972589735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_7
+      name: sushi_belt_7
       rect:
         serializedVersion: 2
         x: 621
@@ -370,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2958ff1e3bc0268f0800000000000000
-      internalID: -548862237855480430
+      spriteID: b594803e1b33921f0800000000000000
+      internalID: -1069266597412583077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_8
+      name: sushi_belt_8
       rect:
         serializedVersion: 2
         x: 1297
@@ -392,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4fd7075e6861aa60800000000000000
-      internalID: 7683537262386601802
+      spriteID: be2839133d16938b0800000000000000
+      internalID: -5171995137360559381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_9
+      name: sushi_belt_9
       rect:
         serializedVersion: 2
         x: 1320
@@ -414,14 +414,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc3f36ae23948a660800000000000000
-      internalID: 7397242870985651149
+      spriteID: 5a1e4a68672403c40800000000000000
+      internalID: 5489961022597161381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_10
+      name: sushi_belt_10
       rect:
         serializedVersion: 2
         x: 1328
@@ -436,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b26a3cd69be1c9500800000000000000
-      internalID: 404231848315823659
+      spriteID: ad15a465748181180800000000000000
+      internalID: -9144532348706336294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_11
+      name: sushi_belt_11
       rect:
         serializedVersion: 2
         x: 1354
@@ -458,14 +458,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e7a157a76b777080800000000000000
-      internalID: -9189740829507213339
+      spriteID: 8323f0b9535232120800000000000000
+      internalID: 2387793139601453624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: belt_12
+      name: sushi_belt_12
       rect:
         serializedVersion: 2
         x: 1370
@@ -480,8 +480,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e1ada8fa154fa920800000000000000
-      internalID: 3003695458623005156
+      spriteID: f3f735c4d8be4b270800000000000000
+      internalID: 8265490208235159359
       vertices: []
       indices: 
       edges: []
