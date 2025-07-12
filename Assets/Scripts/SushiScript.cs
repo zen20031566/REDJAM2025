@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
-public class ClimbScript : MonoBehaviour
+public class SushiScript : MonoBehaviour
 {
     //song related
     public Conductor conductor;
@@ -29,11 +29,10 @@ public class ClimbScript : MonoBehaviour
     [SerializeField] Sprite playerSprite1;
     [SerializeField] Sprite playerSprite2;
     private SpriteRenderer spriteRenderer;
-    float lastBeat;
-    public Transform bg1;
-    public Transform bg2;
-    public float scrollSpeed = 1f;
-    public float bgHeight;
+    public Transform belt1;
+    public Transform belt2;
+    public float moveAmount = 1f;
+    public float beltWidth;
     private int spawnIndex = 0;
     float hittiming = 0f;
     Vector3 originalPos;
@@ -42,7 +41,7 @@ public class ClimbScript : MonoBehaviour
     private void Start()
     {
         spriteRenderer = player.GetComponent<SpriteRenderer>();
-        bgHeight = bg1.GetComponent<SpriteRenderer>().bounds.size.y;
+        beltWidth = belt1.GetComponent<SpriteRenderer>().bounds.size.x;
         conductor.Setup(song, bpm);
 
         originalPos = player.localPosition;
@@ -76,17 +75,34 @@ public class ClimbScript : MonoBehaviour
         touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
     }
 
-    private bool down;
+    float nextHalfBeat;
+    float nextFullBeat;
 
     private void Update()
     {
 
-        //Move head bob 
-        if (conductor.currentSongPosition > lastBeat + conductor.crotchet)
+        if (conductor.currentSongPosition > nextHalfBeat + conductor.crotchet)
         {
-            lastBeat += conductor.crotchet / 2;
-
+            nextHalfBeat += conductor.crotchet / 2f;
             StartCoroutine(BobOnce());
+        }
+
+        if (conductor.currentSongPosition > nextFullBeat + conductor.crotchet)
+        {
+            nextFullBeat += conductor.crotchet;
+
+            belt1.position += Vector3.right * moveAmount;
+            belt2.position += Vector3.right * moveAmount;
+
+            if (belt1.position.x >= beltWidth)
+            {
+                belt1.position = new Vector3(belt2.position.x - beltWidth, belt1.position.y, belt1.position.z);
+            }
+
+            if (belt2.position.x >= beltWidth)
+            {
+                belt2.position = new Vector3(belt1.position.x - beltWidth, belt2.position.y, belt2.position.z);
+            }
 
         }
 
@@ -162,7 +178,7 @@ public class ClimbScript : MonoBehaviour
             if (note.type != type) continue;
             float hitTimingOffset = Mathf.Abs(currentSongPosition - note.hitTiming);
 
-            if (hitTimingOffset < - perfectWindow) continue;
+            if (hitTimingOffset < -perfectWindow) continue;
 
             if (hitTimingOffset < closestHitTiming)
             {
@@ -185,7 +201,6 @@ public class ClimbScript : MonoBehaviour
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
             Destroy(closestNote.gameObject);
-            Climb();  
         }
         else
         {
@@ -193,27 +208,6 @@ public class ClimbScript : MonoBehaviour
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
             Destroy(closestNote.gameObject);
-        }
-    }
-
-    bool spriteA;
-    private void Climb()
-    {
-        spriteRenderer.sprite = spriteA ? playerSprite1 : playerSprite2;
-        spriteA = !spriteA;
-
-        bg1.position += Vector3.down * scrollSpeed;
-        bg2.position += Vector3.down * scrollSpeed;
-
-        if (bg1.position.y <= -bgHeight)
-        {
-            bg1.position = new Vector3(bg1.position.x, bg2.position.y + bgHeight, bg1.position.z);
-        }
-
-        //if bg2 moves below the screen, move it above bg1
-        if (bg2.position.y <= -bgHeight)
-        {
-            bg2.position = new Vector3(bg2.position.x, bg1.position.y + bgHeight, bg2.position.z);
         }
     }
 
@@ -243,3 +237,5 @@ public class ClimbScript : MonoBehaviour
     }
 
 }
+
+

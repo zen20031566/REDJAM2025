@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 76f790bebfa87754b83873f075172c01
+guid: e77a7dfde198ec241a49cbd2d83f84bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9137117592129561275
-    second: DOTweenIcon_0
+      213: -6583211601361217499
+    second: Tappy1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DOTweenIcon_0
+      name: Tappy1_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 91
-        height: 16
+        x: 198
+        y: 54
+        width: 586
+        height: 916
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54d1522e5ff623180800000000000000
-      internalID: -9137117592129561275
+      spriteID: 52852ab8debb3a4a0800000000000000
+      internalID: -6583211601361217499
       vertices: []
       indices: 
       edges: []
