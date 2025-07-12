@@ -499,7 +499,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sushi_belt_0: -6635195210692368757
+      sushi_belt_1: -3571103934530344539
+      sushi_belt_10: -9144532348706336294
+      sushi_belt_11: 2387793139601453624
+      sushi_belt_12: 8265490208235159359
+      sushi_belt_2: -8412818343338601372
+      sushi_belt_3: 8468204868537852786
+      sushi_belt_4: 1301115927291659062
+      sushi_belt_5: 5364260793012687766
+      sushi_belt_6: 2245638421972589735
+      sushi_belt_7: -1069266597412583077
+      sushi_belt_8: -5171995137360559381
+      sushi_belt_9: 5489961022597161381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
