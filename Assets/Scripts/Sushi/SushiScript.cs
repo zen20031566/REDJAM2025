@@ -33,8 +33,11 @@ public class SushiScript : MonoBehaviour
 
     // Player visuals
     [SerializeField] private Transform player;
-    [SerializeField] private Sprite playerSprite1;
-    [SerializeField] private Sprite playerSprite2;
+    [SerializeField] private Sprite playerSprite1; //Default Expression
+    [SerializeField] private Sprite playerSprite2; //Happy Expression 
+    //[SerializeField] private Sprite playerSprite3; //Sad Expression
+    //[SerializeField] private Sprite playerSprite4; //Disgust Expression
+
     private SpriteRenderer spriteRenderer;
     Vector3 originalPos;
     [SerializeField] private float bobAmount = 0.2f;

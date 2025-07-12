@@ -1051,7 +1051,7 @@ MonoBehaviour:
   missShow: {fileID: 118525478}
   player: {fileID: 1666441570}
   playerSprite1: {fileID: 862135143057395024, guid: ecb61ed61648a554bb41ccb2cb9e7a83, type: 3}
-  playerSprite2: {fileID: 862135143057395024, guid: ecb61ed61648a554bb41ccb2cb9e7a83, type: 3}
+  playerSprite2: {fileID: -5654556346430426610, guid: 42aa356b26bea7e4b8c1e181418c7a3b, type: 3}
   bobAmount: 0.2
   belt1: {fileID: 1671176337}
   belt2: {fileID: 391779134}
