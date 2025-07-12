@@ -27,7 +27,9 @@ public class SushiScript : MonoBehaviour
     public List<Note> activeNotesList = new();
 
     // UI
-    [SerializeField] private TMP_Text scoreText;
+    //[SerializeField] private TMP_Text scoreText;
+    [SerializeField] private GameObject hitShow;
+    [SerializeField] private GameObject missShow;
 
     // Player visuals
     [SerializeField] private Transform player;
@@ -144,6 +146,19 @@ public class SushiScript : MonoBehaviour
         }
     }
 
+    private IEnumerator ShowFeedback(GameObject obj)
+    {
+        obj.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        obj.SetActive(false);
+    }
+
+    private IEnumerator ShowReaction(Sprite obj)
+    {
+        spriteRenderer.sprite = obj;
+        yield return new WaitForSeconds(1f);
+        spriteRenderer.sprite = playerSprite1;
+    }
     private void ClearInactiveNotes()
     {
         for (int i = activeNotesList.Count - 1; i >= 0; i--)
@@ -162,8 +177,14 @@ public class SushiScript : MonoBehaviour
             {
                 Debug.Log("AUTO MISS");
 
-                scoreText.color = Color.red;
-                scoreText.text = "MISS";
+                //scoreText.color = Color.red;
+                //scoreText.text = "MISS";
+                //hitShow.SetActive(false);
+                StartCoroutine(ShowFeedback(missShow));
+                hitShow.SetActive(false);
+
+                //spriteRenderer.sprite = playerSprite2;
+                //StartCoroutine(ShowReaction(spriteRenderer.sprite));
 
                 // DO NOT destroy here directly
                 note.MarkAsMissed(); // Let it continue its movement first
@@ -205,8 +226,14 @@ public class SushiScript : MonoBehaviour
         if (absOffset <= perfectWindow)
         {
             Debug.Log("PERFECT");
-            scoreText.color = Color.green;
-            scoreText.text = "PERFECT";
+            //scoreText.color = Color.green;
+            //scoreText.text = "PERFECT";
+
+            StartCoroutine(ShowFeedback(hitShow));
+            missShow.SetActive(false);
+
+            spriteRenderer.sprite = playerSprite2;
+            StartCoroutine(ShowReaction(spriteRenderer.sprite));
         }
         /* else if (absOffset <= goodWindow) // Optional
         {
@@ -217,8 +244,11 @@ public class SushiScript : MonoBehaviour
         else
         {
             Debug.Log("MISS");
-            scoreText.color = Color.red;
-            scoreText.text = "MISS";
+            //scoreText.color = Color.red;
+            //scoreText.text = "MISS";
+
+            StartCoroutine(ShowFeedback(missShow));
+            hitShow.SetActive(false);
         }
 
         Destroy(closestNote.gameObject);
