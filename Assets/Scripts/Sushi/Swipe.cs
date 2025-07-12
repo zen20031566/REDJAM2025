@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Swipe : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Swipe : MonoBehaviour
     private Rigidbody2D rb;
     private bool hasSwiped = false;
 
+    public GameObject reactionObject; // Show this temporarily
+    public GameObject mainObject;     // Turn this back on after 1 sec
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,7 +20,6 @@ public class Swipe : MonoBehaviour
 
     void Update()
     {
-        // Detect swipe on mouse or touch
         if (Input.GetMouseButtonDown(0))
         {
             startTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -28,14 +31,7 @@ public class Swipe : MonoBehaviour
             Vector2 swipeDir = (endTouchPos - startTouchPos).normalized;
 
             rb.linearVelocity = swipeDir * swipeSpeed;
-            hasSwiped = true; // prevent multiple swipes
-        }
-
-        // Only trigger swipe if moved enough
-        if ((endTouchPos - startTouchPos).magnitude > 0.3f)
-        {
-            Vector2 swipeDir = (endTouchPos - startTouchPos).normalized;
-            rb.linearVelocity = swipeDir * swipeSpeed;
+            hasSwiped = true;
         }
     }
 
@@ -43,9 +39,29 @@ public class Swipe : MonoBehaviour
     {
         if (other.CompareTag("Target"))
         {
-            Debug.Log("Swiped into target!");
-            Destroy(gameObject); // Or setActive(false)
+            if (reactionObject != null)
+            {
+                StartCoroutine(ShowReaction());
+            }
         }
     }
+
+    IEnumerator ShowReaction()
+    {
+        // Hide the main object and show the reaction
+        mainObject.SetActive(false);
+        reactionObject.SetActive(true);
+
+        // Wait for 1 second
+        yield return new WaitForSeconds(1f);
+
+        // Revert back
+        reactionObject.SetActive(false);
+        mainObject.SetActive(true);
+
+        // Now destroy this swiped object
+        Destroy(gameObject);
+    }
 }
+
 

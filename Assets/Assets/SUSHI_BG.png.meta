@@ -199,7 +199,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUSHI_BG_0: 4366835959747896483
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
