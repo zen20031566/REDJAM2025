@@ -1383,15 +1383,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conductor: {fileID: 757513886}
-  bpm: 0
+  bpm: 64
   song: {fileID: 8300000, guid: 12b904d7a0fd7514a846a14ca05d2177, type: 3}
-  perfectWindow: 0
-  missWindow: 0
+  perfectWindow: 0.2
+  missWindow: 0.15
   touchManager: {fileID: 39810275}
   spawnPoint: {fileID: 151994875}
   hitPoint: {fileID: 1944706227}
-  scoreText: {fileID: 0}
-  tapNotePrefab: {fileID: 0}
+  scoreText: {fileID: 1524524856}
+  tapNotePrefab: {fileID: 4643230748843657634, guid: 38fcdea93ee9b1d48a38aa0ff98ff2f7, type: 3}
   activeNotesList: []
   approachRate: 1
   player: {fileID: 1095889158}
