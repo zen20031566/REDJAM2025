@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum NoteType
 {
-    Tap, Hold, SwipeUp, SwipeDown
+    Tap, Hold, SwipeUp, SwipeDown, Shout
 }
 
 public class NoteData
