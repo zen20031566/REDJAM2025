@@ -199,7 +199,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bam_open_mouth_0: -5654556346430426610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
