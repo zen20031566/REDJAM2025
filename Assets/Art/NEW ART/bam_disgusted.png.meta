@@ -224,6 +224,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1010,7 +1049,42 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bam_disgusted_0: -3975564846183283212
+      bam_disgusted_1: 6919862210792131873
+      bam_disgusted_10: -2073944989903391772
+      bam_disgusted_11: 7742177592164502284
+      bam_disgusted_12: 1435964049447751939
+      bam_disgusted_13: 8135755551895160521
+      bam_disgusted_14: -3200993084357109698
+      bam_disgusted_15: 2907126576554408342
+      bam_disgusted_16: 5831568892785979399
+      bam_disgusted_17: 3238622802478068298
+      bam_disgusted_18: 6441999724967792539
+      bam_disgusted_19: 3831688007097369144
+      bam_disgusted_2: 1272628628332318913
+      bam_disgusted_20: -14593437979135369
+      bam_disgusted_21: -6393228355140635493
+      bam_disgusted_22: 4506665294224506353
+      bam_disgusted_23: -5332784681990382292
+      bam_disgusted_24: 411782177874695752
+      bam_disgusted_25: -4850185657616076082
+      bam_disgusted_26: 5348123272861596800
+      bam_disgusted_27: -884938581352139839
+      bam_disgusted_28: 3741631961016662719
+      bam_disgusted_29: 4634729336231667823
+      bam_disgusted_3: 5412921116207780274
+      bam_disgusted_30: -4482620907369376183
+      bam_disgusted_31: -7006195772652274464
+      bam_disgusted_32: -583057713006797410
+      bam_disgusted_33: 5267249165452873902
+      bam_disgusted_34: -5601762765723942292
+      bam_disgusted_4: 523052332737567893
+      bam_disgusted_5: 766546029954877264
+      bam_disgusted_6: -4981467622322372679
+      bam_disgusted_7: 1637574499175407494
+      bam_disgusted_8: 4073431017543052788
+      bam_disgusted_9: 5535272516321303375
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

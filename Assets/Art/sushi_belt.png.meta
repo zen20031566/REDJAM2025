@@ -1,46 +1,46 @@
 fileFormatVersion: 2
-guid: 858b6131fafb0b546a5437c3385267d4
+guid: f939dbb824fe8c54c9866a9c1c51d78c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4626306424612447502
-    second: rotten_fish_0
+      213: -6635195210692368757
+    second: sushi_belt_0
   - first:
-      213: -3058789031065317908
-    second: rotten_fish_1
+      213: -3571103934530344539
+    second: sushi_belt_1
   - first:
-      213: -4210946433407845104
-    second: rotten_fish_2
+      213: -8412818343338601372
+    second: sushi_belt_2
   - first:
-      213: 5614408986793684920
-    second: rotten_fish_3
+      213: 8468204868537852786
+    second: sushi_belt_3
   - first:
-      213: 8598989995919366476
-    second: rotten_fish_4
+      213: 1301115927291659062
+    second: sushi_belt_4
   - first:
-      213: 5004543629461598895
-    second: rotten_fish_5
+      213: 5364260793012687766
+    second: sushi_belt_5
   - first:
-      213: 1291488880480475340
-    second: rotten_fish_6
+      213: 2245638421972589735
+    second: sushi_belt_6
   - first:
-      213: 2595228803664268155
-    second: rotten_fish_7
+      213: -1069266597412583077
+    second: sushi_belt_7
   - first:
-      213: 449415989459090620
-    second: rotten_fish_8
+      213: -5171995137360559381
+    second: sushi_belt_8
   - first:
-      213: -8450564444718553799
-    second: rotten_fish_9
+      213: 5489961022597161381
+    second: sushi_belt_9
   - first:
-      213: 4033981108110651174
-    second: rotten_fish_10
+      213: -9144532348706336294
+    second: sushi_belt_10
   - first:
-      213: 9074648568713005560
-    second: rotten_fish_11
+      213: 2387793139601453624
+    second: sushi_belt_11
   - first:
-      213: 5356757370942656772
-    second: rotten_fish_12
+      213: 8265490208235159359
+    second: sushi_belt_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -120,32 +120,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -160,6 +134,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -201,277 +201,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rotten_fish_0
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 247
-        width: 48
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e05e1259e21f33040800000000000000
-      internalID: 4626306424612447502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_1
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 174
-        width: 66
-        height: 155
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ced8d78159ffc85d0800000000000000
-      internalID: -3058789031065317908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_2
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 204
-        width: 79
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 01df6848786bf85c0800000000000000
-      internalID: -4210946433407845104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_3
-      rect:
-        serializedVersion: 2
-        x: 358
-        y: 178
-        width: 71
-        height: 141
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8bf29912a336aed40800000000000000
-      internalID: 5614408986793684920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_4
-      rect:
-        serializedVersion: 2
-        x: 471
-        y: 267
-        width: 34
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c4959e587dfb55770800000000000000
-      internalID: 8598989995919366476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_5
-      rect:
-        serializedVersion: 2
-        x: 518
-        y: 269
-        width: 25
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa2b0017ae5b37540800000000000000
-      internalID: 5004543629461598895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_6
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 254
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cc8d7605b4a4ce110800000000000000
-      internalID: 1291488880480475340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_7
+      name: sushi_belt_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 202
-        width: 18
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b7b4549c8da140420800000000000000
-      internalID: 2595228803664268155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_8
-      rect:
-        serializedVersion: 2
-        x: 441
-        y: 196
-        width: 42
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cbcf6181675ac3600800000000000000
-      internalID: 449415989459090620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_9
-      rect:
-        serializedVersion: 2
-        x: 538
-        y: 219
-        width: 19
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9352109196099ba80800000000000000
-      internalID: -8450564444718553799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_10
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 159
-        width: 28
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62f6293e1749bf730800000000000000
-      internalID: 4033981108110651174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_11
-      rect:
-        serializedVersion: 2
-        x: 494
-        y: 201
-        width: 32
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f945af2bc0afed70800000000000000
-      internalID: 9074648568713005560
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rotten_fish_12
-      rect:
-        serializedVersion: 2
-        x: 75
         y: 0
-        width: 447
-        height: 193
+        width: 1920
+        height: 670
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,8 +216,272 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4011ef29276075a40800000000000000
-      internalID: 5356757370942656772
+      spriteID: b86ee435c1d0be3a0800000000000000
+      internalID: -6635195210692368757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_1
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 616
+        width: 82
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9a15e54e3e07ec0800000000000000
+      internalID: -3571103934530344539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_2
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 613
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464996d2a4aaf3b80800000000000000
+      internalID: -8412818343338601372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_3
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 611
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273ae62267b158570800000000000000
+      internalID: 8468204868537852786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_4
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 615
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63382d1da0e7e0210800000000000000
+      internalID: 1301115927291659062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_5
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 605
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 693931a25cea17a40800000000000000
+      internalID: 5364260793012687766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_6
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 603
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac15a33f3c1a2f10800000000000000
+      internalID: 2245638421972589735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_7
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 608
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b594803e1b33921f0800000000000000
+      internalID: -1069266597412583077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_8
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 601
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2839133d16938b0800000000000000
+      internalID: -5171995137360559381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_9
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 592
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1e4a68672403c40800000000000000
+      internalID: 5489961022597161381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_10
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 594
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad15a465748181180800000000000000
+      internalID: -9144532348706336294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_11
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 608
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8323f0b9535232120800000000000000
+      internalID: 2387793139601453624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sushi_belt_12
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 604
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3f735c4d8be4b270800000000000000
+      internalID: 8265490208235159359
       vertices: []
       indices: 
       edges: []
@@ -499,20 +499,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rotten_fish_0: 4626306424612447502
-      rotten_fish_1: -3058789031065317908
-      rotten_fish_10: 4033981108110651174
-      rotten_fish_11: 9074648568713005560
-      rotten_fish_12: 5356757370942656772
-      rotten_fish_2: -4210946433407845104
-      rotten_fish_3: 5614408986793684920
-      rotten_fish_4: 8598989995919366476
-      rotten_fish_5: 5004543629461598895
-      rotten_fish_6: 1291488880480475340
-      rotten_fish_7: 2595228803664268155
-      rotten_fish_8: 449415989459090620
-      rotten_fish_9: -8450564444718553799
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
