@@ -5,9 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 882fd7bdf4372b641bf9125d5f856c23
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 6c6b0de6b2d2da84ba32bbafea485fe0
+  - enabled: 1
+    path: Assets/Scenes/Climbing.unity
+    guid: 41534ebe71852ea4e8403d8b6fd63cfd
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 385ec583cb1dae94bb87f134a44de3ae
+  - enabled: 1
+    path: Assets/Scenes/Sushi.unity
+    guid: e9f9e37860253f44f95fd3f55e5c87d9
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: bf378796cad9b7c4eb0297f0709d195c
+  - enabled: 1
+    path: Assets/Scenes/Sumo.unity
+    guid: c7915a91a4ec6564e9b851c4fb4f2594
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 2fef1c5055a9e164d9898ba564846245
   m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c80192d305e719347b6074735c020992, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
