@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine.U2D;
+using DG.Tweening;
 
-public class NoteManager : MonoBehaviour
+public class ClimbScript : MonoBehaviour
 {
     public Conductor conductor;
     private float currentSongPosition;
@@ -20,6 +20,8 @@ public class NoteManager : MonoBehaviour
     [SerializeField] private TextAsset hitTimingsTextAsset;
     [SerializeField] Transform player;
 
+    int beatCount;
+    float lastBeat;
     public Transform bg1;
     public Transform bg2;
     public float scrollSpeed = 1f;
@@ -32,10 +34,15 @@ public class NoteManager : MonoBehaviour
     private int spawnIndex = 0;
 
     float hittiming = 0f;
+    Vector3 originalPos;
+    [SerializeField] private float bobAmount = 0.2f;
+
     private void Start()
     {
         bgHeight = bg1.GetComponent<SpriteRenderer>().bounds.size.y;
         conductor.Setup(song, bpm);
+
+        originalPos = player.localPosition;
 
         for (int i = 0; i < 100; i++)
         {
@@ -47,6 +54,7 @@ public class NoteManager : MonoBehaviour
                 hitTiming = hittiming,
             });
         }
+        float lastBeat = conductor.currentSongPosition;
     }
 
     private void OnEnable()
@@ -65,8 +73,28 @@ public class NoteManager : MonoBehaviour
         touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
     }
 
+    private bool down;
+
     private void Update()
     {
+
+        //Move head bob 
+        if (conductor.currentSongPosition > lastBeat + conductor.crotchet)
+        {
+            lastBeat += conductor.crotchet;
+
+            down = !down;
+
+            player.DOLocalMoveY(originalPos.y - bobAmount, conductor.crotchet / 2f)
+          .SetEase(Ease.OutQuad)
+          .OnComplete(() =>
+          {
+              player.DOLocalMoveY(originalPos.y, conductor.crotchet / 2f)
+                    .SetEase(Ease.InQuad);
+          });
+
+        }
+
         ClearInactiveNotes();
 
         currentSongPosition = conductor.currentSongPosition;
@@ -92,7 +120,7 @@ public class NoteManager : MonoBehaviour
         if (prefab != null)
         {
             Note note = Instantiate(prefab);
-            note.Setup(conductor, this, spawnPoint, hitPoint, noteData);
+            note.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
             activeNotesList.Add(note);
         }
 
@@ -139,7 +167,7 @@ public class NoteManager : MonoBehaviour
                 closestNote = note;
             }
         }
-        return (closestHitTiming <= missWindow) ? closestNote : null;
+        return closestNote;
     }
 
     public void CheckNoteHitTiming(NoteType type)
@@ -154,9 +182,7 @@ public class NoteManager : MonoBehaviour
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
             Destroy(closestNote.gameObject);
-            Climb();
-
-            
+            Climb();  
         }
         else
         {
