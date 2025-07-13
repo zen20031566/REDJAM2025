@@ -44,7 +44,41 @@ public class ClimberScript : MonoBehaviour
     [SerializeField] private Image beatProgressBar;
     float lastFullBeat = 0f;
 
+
+    [SerializeField] private TMP_Text countdownText;
+    [SerializeField] private float delay = 1f;
+
     private void Start()
+    {
+        StartCountdown();
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine(CountdownRoutine());
+    }
+
+    private IEnumerator CountdownRoutine()
+    {
+        countdownText.gameObject.SetActive(true);
+
+        countdownText.text = "3";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "2";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "1";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(0.5f); // short "GO!" flash
+
+        countdownText.gameObject.SetActive(false);
+        Setup();
+    }
+
+    private void Setup()
     {
         lastFullBeat = conductor.currentSongPosition;
         spriteRenderer = tapir.spriteRenderer;

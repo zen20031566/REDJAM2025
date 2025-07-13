@@ -5,7 +5,8 @@ public class Conductor : MonoBehaviour
     public AudioSource musicSource;
     public AudioClip song;
     public float bpm = 140f;
-    public float offset = 0.1f; 
+    public float offset = 0.1f;
+    public bool isPlaying = false;
 
     public float currentSongPosition { get; set; }
     public float crotchet { get; set; } //how long each beat is?
@@ -23,6 +24,7 @@ public class Conductor : MonoBehaviour
         dspSongStartTime = (float)AudioSettings.dspTime - startTime;
         Debug.Log($"Song started at {dspSongStartTime}");
         musicSource.Play();
+        isPlaying = true;
     }
 
     void Update()
@@ -34,6 +36,10 @@ public class Conductor : MonoBehaviour
             currentSongPosition = Mathf.Clamp(raw, 0f, musicSource.clip.length); //clamp raw to [0, clip.length] so songPosition never goes below 0 or beyond the track’s end
 
             //Debug.Log($"Song position: {songPosition}");
+        }
+        else if (isPlaying)          
+        {
+            isPlaying = false;    
         }
     }
 }

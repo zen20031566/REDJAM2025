@@ -23,6 +23,7 @@ public class SushiScript : MonoBehaviour
     [SerializeField] private Transform hitPoint;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private SushiNote sushiPrefab;
+    [SerializeField] PerfectAndFail hitScore;
     public List<Note> activeNotesList = new();
     public float approachRate;
 
@@ -34,7 +35,40 @@ public class SushiScript : MonoBehaviour
     float hittiming = 0f;
     [SerializeField] private ElephantGuy elephantGuy;
 
+    [SerializeField] private TMP_Text countdownText;
+    [SerializeField] private float delay = 1f;
+
     private void Start()
+    {
+        StartCountdown();
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine(CountdownRoutine());
+    }
+
+    private IEnumerator CountdownRoutine()
+    {
+        countdownText.gameObject.SetActive(true);
+
+        countdownText.text = "3";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "2";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "1";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(0.5f); // short "GO!" flash
+
+        countdownText.gameObject.SetActive(false);
+        Setup();
+    }
+
+    private void Setup()
     {
         beltWidth = belt1.GetComponent<SpriteRenderer>().bounds.size.x;
         conductor.Setup(song, bpm);
@@ -151,6 +185,7 @@ public class SushiScript : MonoBehaviour
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
                 note.isInitialized = false;
+                hitScore.ShowFail();
                 elephantGuy.Cry();
             }
 
@@ -194,6 +229,7 @@ public class SushiScript : MonoBehaviour
         //}
         if (hitTimingOffset <= perfectWindow)
         {
+            hitScore.ShowPerfect();
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
@@ -214,6 +250,7 @@ public class SushiScript : MonoBehaviour
         }
         else
         {
+            hitScore.ShowFail();
             Debug.Log("MISS");
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
@@ -253,6 +290,7 @@ public class SushiScript : MonoBehaviour
                 {
                     sushi.FlickUp();
                 }
+                hitScore.ShowFail();
                 elephantGuy.Miss();
                 Debug.Log("Swipe up onn swipe down");
                 scoreText.color = Color.red;
@@ -266,6 +304,8 @@ public class SushiScript : MonoBehaviour
     {
         CheckNoteHitTiming(NoteType.SwipeDown);
     }
+
+   
 }
 
 
