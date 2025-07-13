@@ -46,6 +46,9 @@ public class SumoScript : MonoBehaviour
 
     {
 
+        conductor.Setup(song, bpm, 0f);
+        
+
         noteDataList = noteDataList.FindAll(note => note.hitTiming >= 30f);
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 3.6920f });
         noteDataList.Add(new NoteData { type = NoteType.Tap, hitTiming = 4.6150f });
@@ -216,10 +219,6 @@ public class SumoScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            conductor.Setup(song, bpm, 0f);
-        }
         ClearInactiveNotes();
 
         currentSongPosition = conductor.currentSongPosition;

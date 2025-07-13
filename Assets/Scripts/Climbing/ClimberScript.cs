@@ -28,6 +28,8 @@ public class ClimberScript : MonoBehaviour
     [SerializeField] private Transform hitPoint;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Note tapNotePrefab;
+    [SerializeField] PerfectAndFail hitScore;
+    [SerializeField] Transition transition;
     public List<Note> activeNotesList = new();
     public float approachRate;
 
@@ -51,6 +53,8 @@ public class ClimberScript : MonoBehaviour
 
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private float delay = 1f;
+
+    int missCount;
 
     private void Start()
     {
@@ -191,6 +195,8 @@ public class ClimberScript : MonoBehaviour
             float timeSinceNote = currentSongPosition - note.hitTiming;
             if (timeSinceNote > missWindow)
             {
+                missCount++;
+                hitScore.ShowFail();
                 Debug.Log("AUTO MISS");
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
@@ -230,6 +236,7 @@ public class ClimberScript : MonoBehaviour
         float hitTimingOffset = Mathf.Abs(currentSongPosition - closestNote.hitTiming);
         if (hitTimingOffset <= perfectWindow)
         {
+            hitScore.ShowPerfect();
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
@@ -239,6 +246,8 @@ public class ClimberScript : MonoBehaviour
         }
         else
         {
+            missCount++;
+            hitScore.ShowFail();
             Debug.Log("MISS");
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
