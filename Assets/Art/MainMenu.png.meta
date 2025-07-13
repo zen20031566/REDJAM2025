@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 89ca97bcc4d495045813d5b30fb0f334
+guid: fae5c20504f1a5e40a9d7d271ac40cff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8902060778583019989
-    second: sumo_leg_up_0
+      213: -3451699440861859892
+    second: MainMenu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sumo_leg_up_0
+      name: MainMenu_0
       rect:
         serializedVersion: 2
-        x: 67
+        x: 0
         y: 0
-        width: 904
-        height: 984
+        width: 1080
+        height: 1920
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2e2f9313e6857480800000000000000
-      internalID: -8902060778583019989
+      spriteID: ccfa30c75a91910d0800000000000000
+      internalID: -3451699440861859892
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      sumo_leg_up_0: -8902060778583019989
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
