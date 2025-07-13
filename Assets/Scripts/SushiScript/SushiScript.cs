@@ -151,6 +151,7 @@ public class SushiScript : MonoBehaviour
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
                 note.isInitialized = false;
+                elephantGuy.Cry();
             }
 
             if (note.transform.position.x >= beltWidth)
@@ -196,7 +197,7 @@ public class SushiScript : MonoBehaviour
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
-
+            elephantGuy.Eat();
             if (closestNote is SushiNote sushi)
             {
                 if (sushi.type == NoteType.SwipeUp)
@@ -217,6 +218,7 @@ public class SushiScript : MonoBehaviour
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
             closestNote.isInitialized = false;
+            elephantGuy.Cry();
         }
     }
 
@@ -251,6 +253,7 @@ public class SushiScript : MonoBehaviour
                 {
                     sushi.FlickUp();
                 }
+                elephantGuy.Miss();
                 Debug.Log("Swipe up onn swipe down");
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
