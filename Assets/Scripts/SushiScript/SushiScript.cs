@@ -128,11 +128,6 @@ public class SushiScript : MonoBehaviour
             changingSceneThing.TransitionTo("SushiEnd");
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            SceneManager.LoadScene("ZenYoungTest");
-        }
-
         if (conductor.currentSongPosition > nextHalfBeat + conductor.crotchet)
         {
             nextHalfBeat += conductor.crotchet / 2f;

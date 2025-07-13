@@ -254,10 +254,15 @@ public class SumoScript : MonoBehaviour
         touchManager.OnSwipeUp -= TouchManager_OnSwipeUp;
         touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
     }
-
+    [SerializeField] Transition changingSceneThing;
     private void Update()
     {
         if (agh) return;
+
+        if (!conductor.isPlaying && currentSongPosition >= conductor.musicSource.clip.length)
+        {
+            changingSceneThing.TransitionTo("SumoEnd");
+        }
         ClearInactiveNotes();
 
         currentSongPosition = conductor.currentSongPosition;
