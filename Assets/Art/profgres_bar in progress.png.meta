@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 1f5ed04e5afb08c4094b1200f213cc83
+guid: 1eb14b95ae7c8b045b5d6ed68a0ef536
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1740882223317169843
-    second: sushi_background_0
+      213: -3145608832886100227
+    second: profgres_bar 1_0
+  - first:
+      213: -7817875865137601625
+    second: profgres_bar 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,79 +112,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sushi_background_0
+      name: profgres_bar 1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1080
-        height: 1920
+        x: 8
+        y: 385
+        width: 1982
+        height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b6bc94982bd82810800000000000000
-      internalID: 1740882223317169843
+      spriteID: 7a3af505253518390800000000000000
+      internalID: -7817875865137601625
       vertices: []
       indices: 
       edges: []
@@ -190,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7a9be3be10312cc41b3ac3a7786b9bac
     internalID: 0
     vertices: []
     indices: 
@@ -200,7 +151,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sushi_background_0: 1740882223317169843
+      profgres_bar 1_0: -3145608832886100227
+      profgres_bar 1_1: -7817875865137601625
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
