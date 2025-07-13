@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sushi_win_0: 7634480041748294149
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

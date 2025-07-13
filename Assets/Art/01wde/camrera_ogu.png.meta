@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      camrera_ogu_0: -954474550482564116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
