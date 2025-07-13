@@ -29,36 +29,35 @@ public class TouchManager : MonoBehaviour
     private void OnEnable()
     {
         input.Enable();
-        input.Touch.NoteTouch.started += OnNoteTouch;
+        input.Touch.NoteTouch.performed += OnNoteTouch;
         input.Touch.NoteTouch.canceled += OnNoteRelease;
     }
-
     private void OnDisable()
     {
-        input.Touch.NoteTouch.started -= OnNoteTouch;
+        input.Touch.NoteTouch.performed -= OnNoteTouch;
         input.Touch.NoteTouch.canceled -= OnNoteRelease;
         input.Disable();
     }
-
-    private void OnNoteTouch(InputAction.CallbackContext context)
+    public void OnNoteTouch(InputAction.CallbackContext context)
     {
-        startTouchTime = Time.time;
-        startTouchPos = GetPointerPosition();
+        startTouchPos = Touchscreen.current.position.ReadValue(); //Save up touch position for later swipe //this in screen space not world so based on pixels
+        startTouchTime = (float)context.startTime;
     }
 
     private void OnNoteRelease(InputAction.CallbackContext context)
     {
         swipeJustDetected = false;
 
-        endTouchTime = Time.time;
-        endTouchPos = GetPointerPosition();
-
+        endTouchPos = Touchscreen.current.position.ReadValue(); //Save up untouch position for later swipe //this in screen space not world so based on pixels
+        endTouchTime = (float)context.time;
         Vector2 swipe = endTouchPos - startTouchPos;
 
+        //if swipe magnitde over certain value then count as swipe?
         if (swipe.magnitude > minimumDistance &&
-            (endTouchTime - startTouchTime) <= maximumTime)
+            (endTouchTime - startTouchTime) <= maximumTime) //how long swipe last is <= max time else its a hold not swipe
         {
-            if (Mathf.Abs(swipe.y) > Mathf.Abs(swipe.x))
+            swipeJustDetected = true;
+            if (Mathf.Abs(swipe.y) > Math.Abs(swipe.x))
             {
                 if (swipe.y > 0)
                 {
@@ -70,33 +69,23 @@ public class TouchManager : MonoBehaviour
                     Debug.Log("Swipe Down Detected");
                     OnSwipeDown?.Invoke(this, EventArgs.Empty);
                 }
-
-                swipeJustDetected = true;
             }
+            
         }
 
+        //if not swipe then trigger onTap event, just to not let touch and swipe conflict
         if (!swipeJustDetected)
         {
             Debug.Log("Tap Detected");
             OnTap?.Invoke(this, EventArgs.Empty);
         }
-
-        OnTapReleased?.Invoke(this, EventArgs.Empty);
-        Debug.Log("Tap Released");
-    }
-
-    private Vector2 GetPointerPosition()
-    {
-        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+        else
         {
-            return Touchscreen.current.primaryTouch.position.ReadValue();
+            swipeJustDetected = false;
         }
 
-        if (Mouse.current != null)
-        {
-            return Mouse.current.position.ReadValue(); // No need to check isPressed
-        }
+            OnTapReleased?.Invoke(this, EventArgs.Empty);
+        Debug.Log("Tap Releasedd");
 
-        return Vector2.zero;
     }
 }
