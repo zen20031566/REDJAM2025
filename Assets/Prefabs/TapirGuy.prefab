@@ -132,3 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66581c160bb10f642a8fefc9444842ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 695962629334668213}
+  idleSprite: {fileID: 8262274265743565358, guid: 1a5e068f0d918e74791da3c0f0c3744c, type: 3}
+  climbSprite: {fileID: 2742732686037036156, guid: 8c457804b2f45424eb2c286f4de74f36, type: 3}
+  missSprite: {fileID: 8262274265743565358, guid: 1a5e068f0d918e74791da3c0f0c3744c, type: 3}
+  bobAmount: 0.2
+  originalPos: {x: 0, y: 0, z: 0}

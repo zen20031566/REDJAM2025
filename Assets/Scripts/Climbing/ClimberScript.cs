@@ -27,7 +27,6 @@ public class ClimberScript : MonoBehaviour
     public float approachRate;
 
     //visuals
-    [SerializeField] Transform player;
     Sprite playerSprite1;
     Sprite playerSprite2;
     private SpriteRenderer spriteRenderer;
@@ -38,7 +37,6 @@ public class ClimberScript : MonoBehaviour
     public float bgHeight;
     private int spawnIndex = 0;
     float hittiming = 0f;
-    Vector3 originalPos;
     [SerializeField] private float bobAmount = 0.2f;
     [SerializeField] TapirGuy tapir;
 
