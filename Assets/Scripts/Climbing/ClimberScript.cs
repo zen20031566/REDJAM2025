@@ -4,9 +4,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ClimberScript : MonoBehaviour
 {
+    bool agh;
     //song related
     public Conductor conductor;
     private float currentSongPosition;
@@ -29,7 +31,7 @@ public class ClimberScript : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Note tapNotePrefab;
     [SerializeField] PerfectAndFail hitScore;
-    [SerializeField] Transition transition;
+    [SerializeField] RetryScript transition;
     public List<Note> activeNotesList = new();
     public float approachRate;
 
@@ -44,7 +46,6 @@ public class ClimberScript : MonoBehaviour
     public float bgHeight;
     private int spawnIndex = 0;
     float hittiming = 0f;
-    [SerializeField] private float bobAmount = 0.2f;
     [SerializeField] TapirGuy tapir;
 
     [SerializeField] private Image beatProgressBar;
@@ -128,6 +129,7 @@ public class ClimberScript : MonoBehaviour
 
     private void Update()
     {
+        if (agh) return;
         currentSongPosition = conductor.currentSongPosition;
 
         float timeSinceLastBeat = currentSongPosition - lastFullBeat;
@@ -196,6 +198,13 @@ public class ClimberScript : MonoBehaviour
             if (timeSinceNote > missWindow)
             {
                 missCount++;
+                if (missCount >= 5)
+                {
+                    conductor.musicSource.Stop();
+                    DOTween.KillAll();
+                    transition.Transition();
+                    agh = true;
+                }
                 hitScore.ShowFail();
                 Debug.Log("AUTO MISS");
                 scoreText.color = Color.red;
@@ -247,6 +256,13 @@ public class ClimberScript : MonoBehaviour
         else
         {
             missCount++;
+            if (missCount >= 5)
+            {
+                conductor.musicSource.Stop();
+                DOTween.KillAll();
+                transition.Transition();
+                agh = true;
+            }
             hitScore.ShowFail();
             Debug.Log("MISS");
             scoreText.color = Color.red;

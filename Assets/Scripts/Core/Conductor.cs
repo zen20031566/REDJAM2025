@@ -15,7 +15,8 @@ public class Conductor : MonoBehaviour
 
     public void Setup(AudioClip song, float bpm, float startTime = 0f)
     {
-        musicSource.Stop();
+        if (musicSource.isPlaying) return;
+            musicSource.Stop();
         musicSource.clip = song;
         crotchet = 60f / bpm;
 

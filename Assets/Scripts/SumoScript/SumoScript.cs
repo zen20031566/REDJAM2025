@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.Audio;
 using System.Collections;
+using DG.Tweening;
 
 public class SumoScript : MonoBehaviour
 {
@@ -42,7 +43,44 @@ public class SumoScript : MonoBehaviour
     private int spawnIndex = 0;
     private int visualIndex = 0;
 
+    [SerializeField] RetryScript transition;
+    [SerializeField] PerfectAndFail hitScore;
+    int missCount;
+    bool agh = false;
+    [SerializeField] private TMP_Text countdownText;
+    [SerializeField] private float delay = 1f;
+
     private void Start()
+    {
+        StartCountdown();
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine(CountdownRoutine());
+    }
+
+    private IEnumerator CountdownRoutine()
+    {
+        countdownText.gameObject.SetActive(true);
+
+        countdownText.text = "3";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "2";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "1";
+        yield return new WaitForSeconds(delay);
+
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(0.5f); // short "GO!" flash
+
+        countdownText.gameObject.SetActive(false);
+        Setup();
+    }
+
+    private void Setup()
 
     {
 
@@ -219,6 +257,7 @@ public class SumoScript : MonoBehaviour
 
     private void Update()
     {
+        if (agh) return;
         ClearInactiveNotes();
 
         currentSongPosition = conductor.currentSongPosition;
@@ -297,7 +336,16 @@ public class SumoScript : MonoBehaviour
             float timeSinceNote = currentSongPosition - note.hitTiming;
             if (timeSinceNote > missWindow)
             {
+                missCount++;
+                if (missCount >= 5)
+                {
+                    conductor.musicSource.Stop();
+                    DOTween.KillAll();
+                    transition.Transition();
+                    agh = true;
+                }
                 Ugo.Miss();
+                hitScore.ShowFail();
                 Debug.Log("AUTO MISS");
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
@@ -344,6 +392,7 @@ public class SumoScript : MonoBehaviour
 
         if (hitTimingOffset <= perfectWindow)
         {
+            hitScore.ShowPerfect();
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
@@ -366,7 +415,16 @@ public class SumoScript : MonoBehaviour
         }
         else
         {
+            missCount++;
+            if (missCount >= 5)
+            {
+                conductor.musicSource.Stop();
+                DOTween.KillAll();
+                transition.Transition();
+                agh = true;
+            }
             Ugo.Miss();
+            hitScore.ShowFail();
             Debug.Log("MISS");
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
@@ -384,6 +442,7 @@ public class SumoScript : MonoBehaviour
 
     private void TouchManager_OnScreenTouched(object sender, System.EventArgs e)
     {
+        if (agh) return;
         Debug.Log("Touch detected");
 
         if (!touchManager.swipeJustDetected)

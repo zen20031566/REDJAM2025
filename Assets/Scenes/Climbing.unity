@@ -1704,7 +1704,7 @@ MonoBehaviour:
   scoreText: {fileID: 2016545893}
   tapNotePrefab: {fileID: 4643230748843657634, guid: eebc220a62932974ea2f73d7d943a349, type: 3}
   hitScore: {fileID: 178417323}
-  transition: {fileID: 0}
+  transition: {fileID: 84445997}
   activeNotesList: []
   approachRate: 1
   bg1: {fileID: 1005893841}
