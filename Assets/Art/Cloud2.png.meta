@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: efdf6d422e6021a46b84c46e6a2d3e28
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8591141901481381195
+    second: Cloud2_0
+  - first:
+      213: -4911293541655054529
+    second: Cloud2_1
+  - first:
+      213: 7718810039110682391
+    second: Cloud2_2
+  - first:
+      213: 8231059315349886342
+    second: Cloud2_3
+  - first:
+      213: -5489910345344790825
+    second: Cloud2_4
+  - first:
+      213: 1854838120316215915
+    second: Cloud2_5
+  - first:
+      213: -4241951745919796738
+    second: Cloud2_6
+  - first:
+      213: -7909957081338759117
+    second: Cloud2_7
+  - first:
+      213: -530569694949431401
+    second: Cloud2_8
+  - first:
+      213: -8092871386180954883
+    second: Cloud2_9
+  - first:
+      213: -7320278919748918790
+    second: Cloud2_10
+  - first:
+      213: 7864148734611243867
+    second: Cloud2_11
+  - first:
+      213: -925889871949493210
+    second: Cloud2_12
+  - first:
+      213: -4795661883570594670
+    second: Cloud2_13
+  - first:
+      213: -7047086717434681906
+    second: Cloud2_14
+  - first:
+      213: 4138226251565690901
+    second: Cloud2_15
+  - first:
+      213: 7314579125848542829
+    second: Cloud2_16
+  - first:
+      213: 8049541655570097170
+    second: Cloud2_17
+  - first:
+      213: 2972271966122344988
+    second: Cloud2_18
+  - first:
+      213: -8766760420335090530
+    second: Cloud2_19
+  - first:
+      213: -5760668818319489127
+    second: Cloud2_20
+  - first:
+      213: -6662264459352086563
+    second: Cloud2_21
+  - first:
+      213: -2819737047787389747
+    second: Cloud2_22
+  - first:
+      213: 1075226491602732973
+    second: Cloud2_23
+  - first:
+      213: -3053998963206646723
+    second: Cloud2_24
+  - first:
+      213: -8876878507168203893
+    second: Cloud2_25
+  - first:
+      213: 6159759277968752130
+    second: Cloud2_26
+  - first:
+      213: 737915894130806766
+    second: Cloud2_27
+  - first:
+      213: -1583895856764094696
+    second: Cloud2_28
+  - first:
+      213: -1783143482911547650
+    second: Cloud2_29
+  - first:
+      213: 5530260068540470385
+    second: Cloud2_30
+  - first:
+      213: -220493801373159958
+    second: Cloud2_31
+  - first:
+      213: 3274569146114275775
+    second: Cloud2_32
+  - first:
+      213: -6280734881376491335
+    second: Cloud2_33
+  - first:
+      213: 7315860804046527555
+    second: Cloud2_34
+  - first:
+      213: 2810681877273037291
+    second: Cloud2_35
+  - first:
+      213: 6009519768967454802
+    second: Cloud2_36
+  - first:
+      213: -5110039928712479371
+    second: Cloud2_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cloud2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1035
+        height: 685
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388fb5634fced794fadbf533897c1a07
+      internalID: -1810468576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f88c3caa16061da42a9ef5afcc4ab202
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cloud2_0: -1810468576
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

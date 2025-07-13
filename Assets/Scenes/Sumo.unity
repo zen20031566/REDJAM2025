@@ -2530,7 +2530,7 @@ PrefabInstance:
     - target: {fileID: 3881250574781231693, guid: 6f744b366b3e44b43bacb08ec9012b45, type: 3}
       propertyPath: pushSprite
       value: 
-      objectReference: {fileID: -1310453177490059556, guid: 8a47ceaa68d43614785daf6e2601d143, type: 3}
+      objectReference: {fileID: 8814660258910413329, guid: b7c28f705d0793d4dbc9525d72a7df70, type: 3}
     - target: {fileID: 3881250574781231693, guid: 6f744b366b3e44b43bacb08ec9012b45, type: 3}
       propertyPath: shoutSound
       value: 
