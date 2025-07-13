@@ -748,6 +748,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 348773937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327120779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 547055417507566516, guid: 415d8a615be34384d9dff39b3d9c33c7, type: 3}
+  m_PrefabInstance: {fileID: 7449622660203536007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146829128eeadd84eb413fdb429f4565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1428437797
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +803,7 @@ MonoBehaviour:
   belt1: {fileID: 1671176337}
   moveAmount: 3.27
   beltWidth: 0
-  elephantGuy: {fileID: 0}
+  elephantGuy: {fileID: 1327120779}
 --- !u!4 &1428437799
 Transform:
   m_ObjectHideFlags: 0

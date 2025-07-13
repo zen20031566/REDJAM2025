@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
-public class ClimbScript : MonoBehaviour
+
+public class ClimberScript : MonoBehaviour
 {
     //song related
     public Conductor conductor;
@@ -27,8 +28,8 @@ public class ClimbScript : MonoBehaviour
 
     //visuals
     [SerializeField] Transform player;
-    [SerializeField] Sprite playerSprite1;
-    [SerializeField] Sprite playerSprite2;
+    Sprite playerSprite1;
+    Sprite playerSprite2;
     private SpriteRenderer spriteRenderer;
     float lastBeat;
     public Transform bg1;
@@ -39,14 +40,15 @@ public class ClimbScript : MonoBehaviour
     float hittiming = 0f;
     Vector3 originalPos;
     [SerializeField] private float bobAmount = 0.2f;
+    [SerializeField] TapirGuy tapir;
 
     private void Start()
     {
-        spriteRenderer = player.GetComponent<SpriteRenderer>();
+        spriteRenderer = tapir.spriteRenderer;
+        playerSprite1 = tapir.idleSprite;
+        playerSprite2 = tapir.climbSprite;
         bgHeight = bg1.GetComponent<SpriteRenderer>().bounds.size.y;
         conductor.Setup(song, bpm);
-
-        originalPos = player.localPosition;
 
         for (int i = 0; i < 100; i++)
         {
@@ -77,8 +79,6 @@ public class ClimbScript : MonoBehaviour
         touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
     }
 
-    private bool down;
-
     private void Update()
     {
         currentSongPosition = conductor.currentSongPosition;
@@ -92,7 +92,7 @@ public class ClimbScript : MonoBehaviour
         {
             lastBeat += conductor.crotchet / 2;
 
-            StartCoroutine(BobOnce());
+            tapir.Bob();
 
         }
 
@@ -105,14 +105,6 @@ public class ClimbScript : MonoBehaviour
             SpawnNote(noteDataList[spawnIndex]);
             spawnIndex++;
         }
-    }
-
-    private IEnumerator BobOnce()
-    {
-        player.localPosition = originalPos + Vector3.down * bobAmount;
-        yield return new WaitForSeconds(0.2f);
-        player.localPosition = originalPos;
-        yield return null;
     }
 
     public void SpawnNote(NoteData noteData)
@@ -153,6 +145,7 @@ public class ClimbScript : MonoBehaviour
                 Debug.Log("AUTO MISS");
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
+                tapir.Miss();
                 Destroy(note.gameObject);
                 activeNotesList.RemoveAt(i);
             }
@@ -198,6 +191,7 @@ public class ClimbScript : MonoBehaviour
             Debug.Log("MISS");
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
+            tapir.Miss();
             Destroy(closestNote.gameObject);
         }
     }
