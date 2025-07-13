@@ -132,7 +132,7 @@ public class ClimberScript : MonoBehaviour
     {
         if (agh) return;
 
-        if (!conductor.isPlaying && currentSongPosition >= conductor.musicSource.clip.length)
+        if (conductor.musicSource.clip != null && !conductor.isPlaying && currentSongPosition >= conductor.musicSource.clip.length )
         {
             changingSceneThing.TransitionTo("ClimbEnd");
         }
