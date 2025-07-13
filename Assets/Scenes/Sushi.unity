@@ -1205,7 +1205,7 @@ MonoBehaviour:
   conductor: {fileID: 807450401}
   bpm: 75
   song: {fileID: 8300000, guid: 437b98b21b060a648a0798a3a85f9827, type: 3}
-  perfectWindow: 0.3
+  perfectWindow: 0.4
   missWindow: 0.15
   touchManager: {fileID: 1898897882}
   spawnPoint: {fileID: 916838572}
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   sushiPrefab: {fileID: -8370951281882622148, guid: 623c440f045998a4c8c2840312d33f75, type: 3}
   hitScore: {fileID: 182573346}
   activeNotesList: []
-  approachRate: 0.8
+  approachRate: 1.6
   belt1: {fileID: 1671176337}
   moveAmount: 3.27
   beltWidth: 0
