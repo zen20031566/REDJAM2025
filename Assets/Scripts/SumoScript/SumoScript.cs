@@ -259,10 +259,11 @@ public class SumoScript : MonoBehaviour
     {
         if (agh) return;
 
-        if (conductor.musicSource.clip != null && !conductor.isPlaying && currentSongPosition >= conductor.musicSource.clip.length)
+        if (conductor.currentSongPosition >= 80f)
         {
             changingSceneThing.TransitionTo("SumoEnd");
         }
+
         ClearInactiveNotes();
 
         currentSongPosition = conductor.currentSongPosition;

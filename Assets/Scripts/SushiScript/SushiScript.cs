@@ -124,7 +124,7 @@ public class SushiScript : MonoBehaviour
     {
         if (agh) return;
 
-        if (conductor.musicSource.clip != null && !conductor.isPlaying && currentSongPosition >= conductor.musicSource.clip.length)
+        if (conductor.currentSongPosition >= 63f)
         {
             changingSceneThing.TransitionTo("SushiEnd");
         }
