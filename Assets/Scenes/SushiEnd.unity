@@ -486,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   black: {fileID: 821030635}
   menu: {fileID: 163967331}
-  fadeDuration: 0.5
+  fadeDuration: 1
 --- !u!114 &1524497025
 MonoBehaviour:
   m_ObjectHideFlags: 0
