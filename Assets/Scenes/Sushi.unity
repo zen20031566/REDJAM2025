@@ -914,7 +914,7 @@ Transform:
   m_GameObject: {fileID: 916838571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.34, y: -3.53, z: 0}
+  m_LocalPosition: {x: -2.91, y: -3.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1050,8 +1050,9 @@ MonoBehaviour:
   hitShow: {fileID: 1481769284}
   missShow: {fileID: 118525478}
   player: {fileID: 1666441570}
-  playerSprite1: {fileID: 862135143057395024, guid: ecb61ed61648a554bb41ccb2cb9e7a83, type: 3}
+  playerSprite1: {fileID: 1581071909167232167, guid: b7c0104ed495a934ba1f6717c1dcad48, type: 3}
   playerSprite2: {fileID: -5654556346430426610, guid: 42aa356b26bea7e4b8c1e181418c7a3b, type: 3}
+  playerSprite3: {fileID: -8401930926935364, guid: 59b5172682349eb41b8d8fdde19124d1, type: 3}
   bobAmount: 0.2
   belt1: {fileID: 1671176337}
   belt2: {fileID: 391779134}
@@ -1173,7 +1174,7 @@ Transform:
   m_GameObject: {fileID: 1500223207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.36, y: -1.54, z: 0}
+  m_LocalPosition: {x: -1.91, y: -1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

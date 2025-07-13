@@ -5,15 +5,26 @@ public class SushiNote : Note
     private bool hasBeenHit = false;
     private bool wasMissed = false;
 
-    // Allow SushiScript to check hit status through base class
     public override bool HasBeenHit => hasBeenHit;
 
     private float speed;
+
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] possibleSprites; // Assign these in Inspector
 
     public override void Setup(Conductor conductor, Transform spawnPoint, Transform hitPoint, NoteData noteData, float approachRate)
     {
         base.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
         speed = Vector3.Distance(spawnPoint.position, hitPoint.position) / approachRate;
+
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Randomize the sprite on spawn
+        if (possibleSprites != null && possibleSprites.Length > 0)
+        {
+            spriteRenderer.sprite = possibleSprites[Random.Range(0, possibleSprites.Length)];
+        }
     }
 
     protected override void Update()
@@ -31,15 +42,12 @@ public class SushiNote : Note
     {
         wasMissed = true;
         hasBeenHit = true;
-        Destroy(gameObject, 2.0f); // Give it 2 seconds to pass beyond hit point
+        Destroy(gameObject, 2.5f);
     }
 
     public void MarkAsHit()
     {
         hasBeenHit = true;
-        Destroy(gameObject); // Instantly destroy on hit
+        Destroy(gameObject);
     }
 }
-
-
-

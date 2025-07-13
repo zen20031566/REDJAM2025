@@ -35,8 +35,9 @@ public class SushiScript : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Sprite playerSprite1; //Default Expression
     [SerializeField] private Sprite playerSprite2; //Happy Expression 
-    //[SerializeField] private Sprite playerSprite3; //Sad Expression
+    [SerializeField] private Sprite playerSprite3; //Sad Expression
     //[SerializeField] private Sprite playerSprite4; //Disgust Expression
+
 
     private SpriteRenderer spriteRenderer;
     Vector3 originalPos;
@@ -58,12 +59,33 @@ public class SushiScript : MonoBehaviour
         spriteRenderer = player.GetComponent<SpriteRenderer>();
         beltWidth = belt1.GetComponent<SpriteRenderer>().bounds.size.x;
         conductor.Setup(song, bpm);
-
         originalPos = player.localPosition;
 
-        for (int i = 0; i < 100; i++)
+        float songLength = song.length;
+        hittiming = 0f;
+
+        while (hittiming <= songLength)
         {
-            hittiming += conductor.crotchet;
+            float beatMultiplier = 1f;
+
+            if (hittiming <= 20f)
+            {
+                beatMultiplier = 1.5f; // 1 BPM feel (slow)
+            }
+            else if (hittiming > 20f && hittiming <= 45f)
+            {
+                beatMultiplier = 1f; // 2 BPM feel (faster)
+            }
+            else if (hittiming > 45f && hittiming <= 52f)
+            {
+                beatMultiplier = 0.75f; // 3 BPM feel (even faster)
+            }
+            else
+            {
+                beatMultiplier = 1f; // Back to 1 BPM
+            }
+
+            hittiming += conductor.crotchet * beatMultiplier;
 
             noteDataList.Add(new NoteData
             {
@@ -152,14 +174,14 @@ public class SushiScript : MonoBehaviour
     private IEnumerator ShowFeedback(GameObject obj)
     {
         obj.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.2f);
         obj.SetActive(false);
     }
 
     private IEnumerator ShowReaction(Sprite obj)
     {
         spriteRenderer.sprite = obj;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         spriteRenderer.sprite = playerSprite1;
     }
     private void ClearInactiveNotes()
@@ -186,8 +208,8 @@ public class SushiScript : MonoBehaviour
                 StartCoroutine(ShowFeedback(missShow));
                 hitShow.SetActive(false);
 
-                //spriteRenderer.sprite = playerSprite2;
-                //StartCoroutine(ShowReaction(spriteRenderer.sprite));
+                spriteRenderer.sprite = playerSprite3;
+                StartCoroutine(ShowReaction(spriteRenderer.sprite));
 
                 // DO NOT destroy here directly
                 note.MarkAsMissed(); // Let it continue its movement first
@@ -252,6 +274,9 @@ public class SushiScript : MonoBehaviour
 
             StartCoroutine(ShowFeedback(missShow));
             hitShow.SetActive(false);
+
+            spriteRenderer.sprite = playerSprite3;
+            StartCoroutine(ShowReaction(spriteRenderer.sprite));
         }
 
         Destroy(closestNote.gameObject);
