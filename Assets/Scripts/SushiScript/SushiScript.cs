@@ -81,16 +81,20 @@ public class SushiScript : MonoBehaviour
             hittiming += conductor.crotchet;
 
             NoteType type;
-            if (Random.value < 0.7f) // 70% chance
+            if (Random.value < 0.65f) //70% chance
                 type = NoteType.SwipeUp;
-            else
+            else if (Random.value < 0.30f)
                 type = NoteType.SwipeDown;
-
-            noteDataList.Add(new NoteData
+            else
             {
-                type = type,
-                hitTiming = hittiming,
-            });
+                continue;
+            }
+
+                noteDataList.Add(new NoteData
+                {
+                    type = type,
+                    hitTiming = hittiming,
+                });
         }
 
         float lastBeat = conductor.currentSongPosition;
@@ -113,9 +117,17 @@ public class SushiScript : MonoBehaviour
     }
 
     float nextHalfBeat;
+
+    [SerializeField] Transition changingSceneThing;
     private void Update()
     {
         if (agh) return;
+
+        if (!conductor.isPlaying && currentSongPosition >= conductor.musicSource.clip.length)
+        {
+            changingSceneThing.TransitionTo("SushiEnd");
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             SceneManager.LoadScene("ZenYoungTest");
