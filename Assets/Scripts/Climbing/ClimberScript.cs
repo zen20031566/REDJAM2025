@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ClimberScript : MonoBehaviour
 {
@@ -40,8 +41,12 @@ public class ClimberScript : MonoBehaviour
     [SerializeField] private float bobAmount = 0.2f;
     [SerializeField] TapirGuy tapir;
 
+    [SerializeField] private Image beatProgressBar;
+    float lastFullBeat = 0f;
+
     private void Start()
     {
+        lastFullBeat = conductor.currentSongPosition;
         spriteRenderer = tapir.spriteRenderer;
         playerSprite1 = tapir.idleSprite;
         playerSprite2 = tapir.climbSprite;
@@ -77,15 +82,21 @@ public class ClimberScript : MonoBehaviour
         touchManager.OnSwipeDown -= TouchManager_OnSwipeDown;
     }
 
+   
+
     private void Update()
     {
         currentSongPosition = conductor.currentSongPosition;
 
-        if (Input.GetKeyDown(KeyCode.W))
+        float timeSinceLastBeat = currentSongPosition - lastFullBeat;
+
+        if (timeSinceLastBeat >= conductor.crotchet)
         {
-            SceneManager.LoadScene("Sushi");
+            lastFullBeat += conductor.crotchet;
+            timeSinceLastBeat = currentSongPosition - lastFullBeat; // recalculate
         }
-        //Move head bob 
+
+        //half beat
         if (conductor.currentSongPosition > lastBeat + conductor.crotchet)
         {
             lastBeat += conductor.crotchet / 2;
@@ -93,6 +104,8 @@ public class ClimberScript : MonoBehaviour
             tapir.Bob();
 
         }
+
+        beatProgressBar.fillAmount = Mathf.Clamp01(timeSinceLastBeat / conductor.crotchet);
 
         ClearInactiveNotes();
 
