@@ -22,7 +22,6 @@ public class SumoScript : MonoBehaviour
     [SerializeField] private AudioClip shoutSound;
     public List<NoteData> noteDataList = new();
 
-
     //score windows
     [SerializeField] private float perfectWindow;
     [SerializeField] private float missWindow;
@@ -37,19 +36,12 @@ public class SumoScript : MonoBehaviour
     public float approachRate;
 
     //visuals
-    [SerializeField] Transform player;
-    [SerializeField] Sprite playerSprite1;
-    [SerializeField] Sprite playerSprite2;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] Ugo Ugo;
+    [SerializeField] SumoMan SumoMan;
     float lastBeat;
-    public Transform bg1;
-    public Transform bg2;
-    public float scrollSpeed = 1f;
-    public float bgHeight;
     private int spawnIndex = 0;
-    float hittiming = 0f;
-    Vector3 originalPos;
-    [SerializeField] private float bobAmount = 0.2f;
+    private int visualIndex = 0;
+
     private void Start()
 
     {
@@ -233,23 +225,47 @@ public class SumoScript : MonoBehaviour
         currentSongPosition = conductor.currentSongPosition;
         Debug.Log(currentSongPosition);
 
-       
+        //Every half beat
+        if (conductor.currentSongPosition > lastBeat + conductor.crotchet)
+        {
+            lastBeat += conductor.crotchet / 2;
+
+            Ugo.Bob();
+            SumoMan.Bob();
+        }
+
+        while (visualIndex < noteDataList.Count && noteDataList[visualIndex].hitTiming <= currentSongPosition)
+        {
+            NoteData note = noteDataList[visualIndex];
+
+            if (note.type == NoteType.Shout)
+            {
+                SumoMan.Shout();
+            }
+            else if (note.type == NoteType.SwipeUp)
+            {
+                SumoMan.LegUp();
+            }
+            else if (note.type == NoteType.SwipeDown)
+            {
+                SumoMan.Stomp();
+            }
+            else
+            {
+                SumoMan.Push();
+            }
+            visualIndex++;
+        }
 
         while (spawnIndex < noteDataList.Count && noteDataList[spawnIndex].hitTiming <= currentSongPosition + approachRate)
         {
             var note = noteDataList[spawnIndex];
 
-        if (note.type == NoteType.Shout)
-
-        {
-                StartCoroutine(PlayShoutDelayed(0.923f)); // Play shout sound instead of spawning
-        }
-        else
-        {
-            SpawnNote(note);  // Spawn normal note
-        }
-
-        spawnIndex++;
+            if (note.type != NoteType.Shout)
+            {
+                SpawnNote(note);
+            }
+            spawnIndex++;
         }
     }
 
@@ -262,13 +278,9 @@ public class SumoScript : MonoBehaviour
         {
             prefab = tapNotePrefab; // Assuming same prefab for all
         }
-
-        {
             Note note = Instantiate(prefab);
             note.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
             activeNotesList.Add(note);
-        }
-
     }
 
     void ClearInactiveNotes()
@@ -286,6 +298,7 @@ public class SumoScript : MonoBehaviour
             float timeSinceNote = currentSongPosition - note.hitTiming;
             if (timeSinceNote > missWindow)
             {
+                Ugo.Miss();
                 Debug.Log("AUTO MISS");
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
@@ -335,22 +348,26 @@ public class SumoScript : MonoBehaviour
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
+
             if (type == NoteType.Tap)
             {
+                Ugo.Push();
                 sfxAudioSource.PlayOneShot(tapPerfectSound);
             }
-                
             else if (type == NoteType.SwipeUp)
             {
+                Ugo.LegUp();
                 sfxAudioSource.PlayOneShot(swipeUpPerfectSound);
             }
             else if (type == NoteType.SwipeDown)
             {
+                Ugo.Stomp();
                 sfxAudioSource.PlayOneShot(swipeDownPerfectSound);
             }
         }
         else
         {
+            Ugo.Miss();
             Debug.Log("MISS");
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
@@ -376,11 +393,6 @@ public class SumoScript : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayShoutDelayed(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        sfxAudioSource.PlayOneShot(shoutSound);
-    }
     private void TouchManager_OnScreenReleased(object sender, System.EventArgs e)
     {
         //SpriteRenderer.sprite = defaultImage;

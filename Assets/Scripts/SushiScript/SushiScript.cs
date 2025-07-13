@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 public class SushiScript : MonoBehaviour
 {
     //song related
@@ -21,42 +22,40 @@ public class SushiScript : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform hitPoint;
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private Note tapNotePrefab;
+    [SerializeField] private SushiNote sushiPrefab;
     public List<Note> activeNotesList = new();
     public float approachRate;
 
     //visuals
-    [SerializeField] Transform player;
-    [SerializeField] Sprite playerSprite1;
-    [SerializeField] Sprite playerSprite2;
-    private SpriteRenderer spriteRenderer;
     public Transform belt1;
-    public Transform belt2;
     public float moveAmount = 1f;
     public float beltWidth;
     private int spawnIndex = 0;
     float hittiming = 0f;
-    Vector3 originalPos;
-    [SerializeField] private float bobAmount = 0.2f;
+    [SerializeField] private ElephantGuy elephantGuy;
 
     private void Start()
     {
-        spriteRenderer = player.GetComponent<SpriteRenderer>();
         beltWidth = belt1.GetComponent<SpriteRenderer>().bounds.size.x;
         conductor.Setup(song, bpm);
 
-        originalPos = player.localPosition;
-
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 78; i++)
         {
             hittiming += conductor.crotchet;
 
+            NoteType type;
+            if (Random.value < 0.7f) // 70% chance
+                type = NoteType.SwipeUp;
+            else
+                type = NoteType.SwipeDown;
+
             noteDataList.Add(new NoteData
             {
-                type = NoteType.SwipeUp,
+                type = type,
                 hitTiming = hittiming,
             });
         }
+
         float lastBeat = conductor.currentSongPosition;
     }
 
@@ -77,8 +76,6 @@ public class SushiScript : MonoBehaviour
     }
 
     float nextHalfBeat;
-    float nextFullBeat;
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
@@ -89,26 +86,7 @@ public class SushiScript : MonoBehaviour
         if (conductor.currentSongPosition > nextHalfBeat + conductor.crotchet)
         {
             nextHalfBeat += conductor.crotchet / 2f;
-            StartCoroutine(BobOnce());
-        }
-
-        if (conductor.currentSongPosition > nextFullBeat + conductor.crotchet)
-        {
-            nextFullBeat += conductor.crotchet;
-
-            belt1.position += Vector3.right * moveAmount;
-            belt2.position += Vector3.right * moveAmount;
-
-            if (belt1.position.x >= beltWidth)
-            {
-                belt1.position = new Vector3(belt2.position.x - beltWidth, belt1.position.y, belt1.position.z);
-            }
-
-            if (belt2.position.x >= beltWidth)
-            {
-                belt2.position = new Vector3(belt1.position.x - beltWidth, belt2.position.y, belt2.position.z);
-            }
-
+            elephantGuy.Bob();
         }
 
         ClearInactiveNotes();
@@ -122,31 +100,35 @@ public class SushiScript : MonoBehaviour
         }
     }
 
-    private IEnumerator BobOnce()
-    {
-        player.localPosition = originalPos + Vector3.down * bobAmount;
-        yield return new WaitForSeconds(0.2f);
-        player.localPosition = originalPos;
-        yield return null;
-    }
-
     public void SpawnNote(NoteData noteData)
     {
-        Note prefab = null;
-        if (noteData.type == NoteType.Tap)
-        {
-            prefab = tapNotePrefab;
-        }
+        Note prefab = sushiPrefab;
+
         if (noteData.type == NoteType.SwipeUp)
         {
-            prefab = tapNotePrefab;
-        }
-        if (prefab != null)
-        {
             Note note = Instantiate(prefab);
-            note.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
+            if (note is SushiNote sushi)
+            {
+                sushi.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
+            }
+
             activeNotesList.Add(note);
         }
+        if (noteData.type == NoteType.SwipeDown)
+        {
+            Note note = Instantiate(prefab);
+            if (note is SushiNote sushi)
+            {
+                sushi.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate, true);
+            }
+
+            activeNotesList.Add(note);
+        }
+        else
+        {
+            return;
+        }
+
 
     }
 
@@ -163,13 +145,18 @@ public class SushiScript : MonoBehaviour
             }
 
             float timeSinceNote = currentSongPosition - note.hitTiming;
-            if (timeSinceNote > missWindow)
+            if (timeSinceNote > missWindow && note.isInitialized)
             {
                 Debug.Log("AUTO MISS");
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
-                Destroy(note.gameObject);
+                note.isInitialized = false;
+            }
+
+            if (note.transform.position.x >= beltWidth)
+            {
                 activeNotesList.RemoveAt(i);
+                Destroy(note.gameObject);
             }
         }
     }
@@ -200,19 +187,36 @@ public class SushiScript : MonoBehaviour
         if (closestNote == null) return;
 
         float hitTimingOffset = Mathf.Abs(currentSongPosition - closestNote.hitTiming);
+        //if (hitTimingOffset <= -perfectWindow)
+        //{
+        //    Debug.Log("Tooe arly");
+        //}
         if (hitTimingOffset <= perfectWindow)
         {
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
-            Destroy(closestNote.gameObject);
+
+            if (closestNote is SushiNote sushi)
+            {
+                if (sushi.type == NoteType.SwipeUp)
+                {
+                    sushi.FlickUp();
+                }
+                else
+                {
+                    sushi.FlickDown();
+                }
+            }
+
+            closestNote.isInitialized = false;
         }
         else
         {
             Debug.Log("MISS");
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
-            Destroy(closestNote.gameObject);
+            closestNote.isInitialized = false;
         }
     }
 
@@ -233,14 +237,34 @@ public class SushiScript : MonoBehaviour
 
     private void TouchManager_OnSwipeUp(object sender, System.EventArgs e)
     {
-        CheckNoteHitTiming(NoteType.SwipeUp);
+        Note hitNote = GetClosestNote(NoteType.SwipeUp);
+        if (hitNote != null && Mathf.Abs(currentSongPosition - hitNote.hitTiming) <= perfectWindow)
+        {
+            CheckNoteHitTiming(NoteType.SwipeUp);
+        }
+        else
+        {
+            Note wrongNote = GetClosestNote(NoteType.SwipeDown);
+            if (wrongNote != null && Mathf.Abs(currentSongPosition - wrongNote.hitTiming) <= perfectWindow)
+            {
+                if (wrongNote is SushiNote sushi)
+                {
+                    sushi.FlickUp();
+                }
+                Debug.Log("Swipe up onn swipe down");
+                scoreText.color = Color.red;
+                scoreText.text = "MISS";
+                wrongNote.isInitialized = false;
+            }
+        }
     }
 
     private void TouchManager_OnSwipeDown(object sender, System.EventArgs e)
     {
         CheckNoteHitTiming(NoteType.SwipeDown);
     }
-
 }
+
+
 
 

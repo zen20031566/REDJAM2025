@@ -81,6 +81,7 @@ public class ClimbScript : MonoBehaviour
 
     private void Update()
     {
+        currentSongPosition = conductor.currentSongPosition;
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -97,8 +98,8 @@ public class ClimbScript : MonoBehaviour
 
         ClearInactiveNotes();
 
-        currentSongPosition = conductor.currentSongPosition;
-
+        
+        //spawning 
         while (spawnIndex < noteDataList.Count && noteDataList[spawnIndex].hitTiming <= currentSongPosition + approachRate)
         {
             SpawnNote(noteDataList[spawnIndex]);

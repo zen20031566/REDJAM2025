@@ -6,7 +6,7 @@ public class Note : MonoBehaviour
     protected Conductor conductor;
     protected Transform spawnPoint;
     protected Transform hitPoint;
-    protected bool isInitialized = false;
+    public bool isInitialized = false;
     public float hitTiming;
     public float approachRate;
 
@@ -32,7 +32,7 @@ public class Note : MonoBehaviour
             float normalizedTime = 1f - (timeRemaining / approachRate);
             normalizedTime = Mathf.Clamp01(normalizedTime); //clamps between 0 and 1
 
-            transform.position = Vector3.Lerp(spawnPoint.position, hitPoint.position, normalizedTime); //lerp expects a normalize time but i think use do tween later
+            transform.position = Vector3.LerpUnclamped(spawnPoint.position, hitPoint.position, normalizedTime);
         }
     }
 }

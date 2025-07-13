@@ -1,46 +1,10 @@
 fileFormatVersion: 2
-guid: 858b6131fafb0b546a5437c3385267d4
+guid: e05351c6b3dee0646bed01ff60251550
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4626306424612447502
-    second: rotten_fish_0
-  - first:
-      213: -3058789031065317908
-    second: rotten_fish_1
-  - first:
-      213: -4210946433407845104
-    second: rotten_fish_2
-  - first:
-      213: 5614408986793684920
-    second: rotten_fish_3
-  - first:
-      213: 8598989995919366476
-    second: rotten_fish_4
-  - first:
-      213: 5004543629461598895
-    second: rotten_fish_5
-  - first:
-      213: 1291488880480475340
-    second: rotten_fish_6
-  - first:
-      213: 2595228803664268155
-    second: rotten_fish_7
-  - first:
-      213: 449415989459090620
-    second: rotten_fish_8
-  - first:
-      213: -8450564444718553799
-    second: rotten_fish_9
-  - first:
-      213: 4033981108110651174
-    second: rotten_fish_10
-  - first:
-      213: 9074648568713005560
-    second: rotten_fish_11
-  - first:
-      213: 5356757370942656772
-    second: rotten_fish_12
+      213: -6470460504253458178
+    second: 3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -158,66 +122,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rotten_fish_0
+      name: 3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 557
-        height: 396
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e05e1259e21f33040800000000000000
-      internalID: 4626306424612447502
+      spriteID: 8c17970a3ea7d9143bb59ce6320e8134
+      internalID: -1803402129
       vertices: []
       indices: 
       edges: []
@@ -226,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 13bffdd099db097458ff503319882a21
+    spriteID: 498f7236cbc1dac46aa01e6a2aabbc58
     internalID: 0
     vertices: []
     indices: 
@@ -236,19 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rotten_fish_0: 4626306424612447502
-      rotten_fish_1: -3058789031065317908
-      rotten_fish_10: 4033981108110651174
-      rotten_fish_11: 9074648568713005560
-      rotten_fish_12: 5356757370942656772
-      rotten_fish_2: -4210946433407845104
-      rotten_fish_3: 5614408986793684920
-      rotten_fish_4: 8598989995919366476
-      rotten_fish_5: 5004543629461598895
-      rotten_fish_6: 1291488880480475340
-      rotten_fish_7: 2595228803664268155
-      rotten_fish_8: 449415989459090620
-      rotten_fish_9: -8450564444718553799
+      3_0: -1803402129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

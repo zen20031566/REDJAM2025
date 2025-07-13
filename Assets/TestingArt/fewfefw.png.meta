@@ -1,46 +1,19 @@
 fileFormatVersion: 2
-guid: 858b6131fafb0b546a5437c3385267d4
+guid: 3d913526252f4e74c9f71416e6608aa2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4626306424612447502
-    second: rotten_fish_0
+      213: 4192176216066722112
+    second: fewfefw_0
   - first:
-      213: -3058789031065317908
-    second: rotten_fish_1
+      213: -8396003288047581897
+    second: fewfefw_1
   - first:
-      213: -4210946433407845104
-    second: rotten_fish_2
+      213: -5109929771883715721
+    second: fewfefw_2
   - first:
-      213: 5614408986793684920
-    second: rotten_fish_3
-  - first:
-      213: 8598989995919366476
-    second: rotten_fish_4
-  - first:
-      213: 5004543629461598895
-    second: rotten_fish_5
-  - first:
-      213: 1291488880480475340
-    second: rotten_fish_6
-  - first:
-      213: 2595228803664268155
-    second: rotten_fish_7
-  - first:
-      213: 449415989459090620
-    second: rotten_fish_8
-  - first:
-      213: -8450564444718553799
-    second: rotten_fish_9
-  - first:
-      213: 4033981108110651174
-    second: rotten_fish_10
-  - first:
-      213: 9074648568713005560
-    second: rotten_fish_11
-  - first:
-      213: 5356757370942656772
-    second: rotten_fish_12
+      213: -1398548201874660823
+    second: fewfefw_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -158,56 +131,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rotten_fish_0
+      name: fewfefw_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 557
-        height: 396
+        x: 191
+        y: 183
+        width: 574
+        height: 614
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e05e1259e21f33040800000000000000
-      internalID: 4626306424612447502
+      spriteID: 0498f72be0a9d2a30800000000000000
+      internalID: 4192176216066722112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fewfefw_1
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 680
+        width: 37
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73589e25e776b7b80800000000000000
+      internalID: -8396003288047581897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fewfefw_2
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 714
+        width: 92
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 773adaf22f1e519b0800000000000000
+      internalID: -5109929771883715721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fewfefw_3
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 186
+        width: 218
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 922eff9f1db579ce0800000000000000
+      internalID: -1398548201874660823
       vertices: []
       indices: 
       edges: []
@@ -226,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 13bffdd099db097458ff503319882a21
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -235,20 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rotten_fish_0: 4626306424612447502
-      rotten_fish_1: -3058789031065317908
-      rotten_fish_10: 4033981108110651174
-      rotten_fish_11: 9074648568713005560
-      rotten_fish_12: 5356757370942656772
-      rotten_fish_2: -4210946433407845104
-      rotten_fish_3: 5614408986793684920
-      rotten_fish_4: 8598989995919366476
-      rotten_fish_5: 5004543629461598895
-      rotten_fish_6: 1291488880480475340
-      rotten_fish_7: 2595228803664268155
-      rotten_fish_8: 449415989459090620
-      rotten_fish_9: -8450564444718553799
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
