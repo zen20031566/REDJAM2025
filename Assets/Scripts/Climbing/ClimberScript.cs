@@ -11,7 +11,11 @@ public class ClimberScript : MonoBehaviour
     public Conductor conductor;
     private float currentSongPosition;
     [SerializeField] int bpm;
+
+    [SerializeField] private AudioSource sfxAudioSource;
     [SerializeField] private AudioClip song;
+    [SerializeField] private AudioClip tapPerfectSound;
+    [SerializeField] private AudioClip tapMissSound;
     public List<NoteData> noteDataList = new();
 
     //score windows
@@ -93,7 +97,7 @@ public class ClimberScript : MonoBehaviour
 
             noteDataList.Add(new NoteData
             {
-                type = NoteType.SwipeUp,
+                type = NoteType.Tap,
                 hitTiming = hittiming,
             });
         }
@@ -191,6 +195,7 @@ public class ClimberScript : MonoBehaviour
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
                 tapir.Miss();
+                sfxAudioSource.PlayOneShot(tapMissSound);
                 Destroy(note.gameObject);
                 activeNotesList.RemoveAt(i);
             }
@@ -228,6 +233,7 @@ public class ClimberScript : MonoBehaviour
             Debug.Log("PERFECT");
             scoreText.color = Color.green;
             scoreText.text = ("PERFECT");
+            sfxAudioSource.PlayOneShot(tapPerfectSound);
             Destroy(closestNote.gameObject);
             Climb();  
         }
@@ -237,6 +243,7 @@ public class ClimberScript : MonoBehaviour
             scoreText.color = Color.red;
             scoreText.text = ("MISS");
             tapir.Miss();
+            sfxAudioSource.PlayOneShot(tapMissSound);
             Destroy(closestNote.gameObject);
         }
     }

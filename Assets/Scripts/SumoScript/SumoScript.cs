@@ -218,7 +218,7 @@ public class SumoScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            conductor.Setup(song, bpm, 29f);
+            conductor.Setup(song, bpm, 0f);
         }
         ClearInactiveNotes();
 
