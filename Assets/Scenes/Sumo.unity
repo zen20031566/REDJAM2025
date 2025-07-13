@@ -885,7 +885,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 4054396541401093741, guid: 686c0f0a43a44da45a95d77e3a0461c7, type: 3}
-  m_Color: {r: 0.4566037, g: 0.4566037, b: 0.4566037, a: 0}
+  m_Color: {r: 1, g: 0.67174035, b: 0.013207495, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1451,6 +1451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conductor: {fileID: 707380540}
   bpm: 65
+  uparrowSprite: {fileID: -765150924802650856, guid: eb08132a7fbe9bc469a6157fdefe4f6a, type: 3}
+  downarrowSprite: {fileID: 9153374506327073035, guid: 98d5ebd92e6a02a419af1f452e1850a5, type: 3}
   sfxAudioSource: {fileID: 1241315191}
   song: {fileID: 8300000, guid: 3db8b32bd3a1527499865fee287ab29b, type: 3}
   tapPerfectSound: {fileID: 8300000, guid: d1d6cb5cd8f58e744b176e5cb941a1d7, type: 3}

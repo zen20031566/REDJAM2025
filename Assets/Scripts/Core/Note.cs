@@ -9,6 +9,7 @@ public class Note : MonoBehaviour
     public bool isInitialized = false;
     public float hitTiming;
     public float approachRate;
+    public SpriteRenderer spriteRenderer;
 
     public virtual void Setup(Conductor conductor, Transform spawnPoint, Transform hitPoint, NoteData noteData, float approachRate)
     {

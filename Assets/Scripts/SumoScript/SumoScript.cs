@@ -11,7 +11,8 @@ public class SumoScript : MonoBehaviour
     public Conductor conductor;
     private float currentSongPosition;
     [SerializeField] int bpm;
-
+    [SerializeField] Sprite uparrowSprite;
+    [SerializeField] Sprite downarrowSprite;
     [SerializeField] private AudioSource sfxAudioSource;
 
     [SerializeField] private AudioClip song;
@@ -324,6 +325,15 @@ public class SumoScript : MonoBehaviour
         }
             Note note = Instantiate(prefab);
             note.Setup(conductor, spawnPoint, hitPoint, noteData, approachRate);
+
+        if(noteData.type == NoteType.SwipeUp)
+        {
+            note.spriteRenderer.sprite = uparrowSprite;
+        }
+        else if (noteData.type == NoteType.SwipeDown)
+        {
+            note.spriteRenderer.sprite = downarrowSprite;
+        }
             activeNotesList.Add(note);
     }
 

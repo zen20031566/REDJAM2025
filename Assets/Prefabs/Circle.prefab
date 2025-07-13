@@ -104,3 +104,4 @@ MonoBehaviour:
   isInitialized: 0
   hitTiming: 0
   approachRate: 0
+  spriteRenderer: {fileID: 143292494311782389}
