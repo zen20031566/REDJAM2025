@@ -73,8 +73,9 @@ public class SushiScript : MonoBehaviour
 
     private void Setup()
     {
-        beltWidth = belt1.GetComponent<SpriteRenderer>().bounds.size.x;
         conductor.Setup(song, bpm);
+        beltWidth = belt1.GetComponent<SpriteRenderer>().bounds.size.x;
+        
 
         for (int i = 0; i < 78; i++)
         {

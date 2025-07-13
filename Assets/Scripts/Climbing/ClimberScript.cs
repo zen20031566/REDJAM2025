@@ -89,12 +89,13 @@ public class ClimberScript : MonoBehaviour
 
     private void Setup()
     {
+        conductor.Setup(song, bpm);
         lastFullBeat = conductor.currentSongPosition;
         spriteRenderer = tapir.spriteRenderer;
         playerSprite1 = tapir.idleSprite;
         playerSprite2 = tapir.climbSprite;
         bgHeight = bg1.GetComponent<SpriteRenderer>().bounds.size.y;
-        conductor.Setup(song, bpm);
+        
 
         for (int i = 0; i < 100; i++)
         {
@@ -135,6 +136,7 @@ public class ClimberScript : MonoBehaviour
         {
             changingSceneThing.TransitionTo("ClimbEnd");
         }
+        ClearInactiveNotes();
 
         currentSongPosition = conductor.currentSongPosition;
 
@@ -157,7 +159,7 @@ public class ClimberScript : MonoBehaviour
 
         beatProgressBar.fillAmount = Mathf.Clamp01(timeSinceLastBeat / conductor.crotchet);
 
-        ClearInactiveNotes();
+        
 
         
         //spawning 
