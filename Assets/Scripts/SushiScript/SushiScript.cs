@@ -38,6 +38,9 @@ public class SushiScript : MonoBehaviour
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private float delay = 1f;
 
+    [SerializeField] RetryScript transition;
+    int missCount;
+    bool agh = false;
     private void Start()
     {
         StartCountdown();
@@ -112,6 +115,7 @@ public class SushiScript : MonoBehaviour
     float nextHalfBeat;
     private void Update()
     {
+        if (agh) return;
         if (Input.GetKeyDown(KeyCode.W))
         {
             SceneManager.LoadScene("ZenYoungTest");
@@ -181,6 +185,14 @@ public class SushiScript : MonoBehaviour
             float timeSinceNote = currentSongPosition - note.hitTiming;
             if (timeSinceNote > missWindow && note.isInitialized)
             {
+                missCount++;
+                if (missCount >= 5)
+                {
+                    conductor.musicSource.Stop();
+                    DOTween.KillAll();
+                    transition.Transition();
+                    agh = true;
+                }
                 Debug.Log("AUTO MISS");
                 scoreText.color = Color.red;
                 scoreText.text = "MISS";
@@ -250,6 +262,14 @@ public class SushiScript : MonoBehaviour
         }
         else
         {
+            missCount++;
+            if (missCount >= 5)
+            {
+                conductor.musicSource.Stop();
+                DOTween.KillAll();
+                transition.Transition();
+                agh = true;
+            }
             hitScore.ShowFail();
             Debug.Log("MISS");
             scoreText.color = Color.red;
@@ -289,6 +309,14 @@ public class SushiScript : MonoBehaviour
                 if (wrongNote is SushiNote sushi)
                 {
                     sushi.FlickUp();
+                }
+                missCount++;
+                if (missCount >= 5)
+                {
+                    conductor.musicSource.Stop();
+                    DOTween.KillAll();
+                    transition.Transition();
+                    agh = true;
                 }
                 hitScore.ShowFail();
                 elephantGuy.Miss();
