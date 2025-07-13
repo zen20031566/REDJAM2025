@@ -295,6 +295,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0.15, y: 2.31}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &122795669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 122795670}
+  - component: {fileID: 122795672}
+  - component: {fileID: 122795671}
+  m_Layer: 5
+  m_Name: CountdownImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &122795670
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122795669}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6930166515379549835}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &122795671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122795669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -855298285791758126, guid: 93137c71b86cdbd44b48ff8e616f080b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &122795672
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122795669}
+  m_CullTransparentMesh: 1
 --- !u!114 &182573346 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6891841183861961601, guid: 88bcba4b2e4899e4eb948c5fd02d9a33, type: 3}
@@ -1297,6 +1372,12 @@ MonoBehaviour:
   countdownText: {fileID: 1722880328}
   delay: 1
   transition: {fileID: 1700002232}
+  countdown: {fileID: 122795669}
+  countdownImage: {fileID: 122795671}
+  three: {fileID: -6470460504253458178, guid: 71baa65a158edfb48805e5f93ae02109, type: 3}
+  two: {fileID: 6937817954938267909, guid: ab619dd2ae5b8c942b3e1809b6122e63, type: 3}
+  one: {fileID: -855298285791758126, guid: 93137c71b86cdbd44b48ff8e616f080b, type: 3}
+  go: {fileID: -2817428056211571440, guid: a21f085d4946d73488fa29ce4fab7060, type: 3}
   changingSceneThing: {fileID: 2108281633}
 --- !u!4 &1428437799
 Transform:
@@ -2050,6 +2131,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7821353059171195222, guid: fa75be340bbca5c4bb17e0d2966d5e78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 122795670}
     - targetCorrespondingSourceObject: {fileID: 7821353059171195222, guid: fa75be340bbca5c4bb17e0d2966d5e78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1240122134}

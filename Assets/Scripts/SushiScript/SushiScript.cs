@@ -4,6 +4,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 public class SushiScript : MonoBehaviour
 {
     //song related
@@ -41,6 +42,13 @@ public class SushiScript : MonoBehaviour
     [SerializeField] RetryScript transition;
     int missCount;
     bool agh = false;
+
+    [SerializeField] private GameObject countdown;
+    [SerializeField] private Image countdownImage;
+    [SerializeField] private Sprite three;
+    [SerializeField] private Sprite two;
+    [SerializeField] private Sprite one;
+    [SerializeField] private Sprite go;
     private void Start()
     {
         StartCountdown();
@@ -53,21 +61,22 @@ public class SushiScript : MonoBehaviour
 
     private IEnumerator CountdownRoutine()
     {
-        countdownText.gameObject.SetActive(true);
+        countdown.SetActive(true);
 
-        countdownText.text = "3";
+        countdownImage.sprite = three;
         yield return new WaitForSeconds(delay);
 
-        countdownText.text = "2";
+        countdownImage.sprite = two;
         yield return new WaitForSeconds(delay);
 
-        countdownText.text = "1";
+        countdownImage.sprite = one;
         yield return new WaitForSeconds(delay);
 
-        countdownText.text = "GO!";
-        yield return new WaitForSeconds(0.5f); // short "GO!" flash
+        countdownImage.sprite = go;
+        yield return new WaitForSeconds(0.5f);
 
-        countdownText.gameObject.SetActive(false);
+        countdown.SetActive(false);
+
         Setup();
     }
 

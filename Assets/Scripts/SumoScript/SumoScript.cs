@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.Audio;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class SumoScript : MonoBehaviour
 {
@@ -51,6 +52,12 @@ public class SumoScript : MonoBehaviour
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private float delay = 1f;
 
+    [SerializeField] private GameObject countdown;
+    [SerializeField] private Image countdownImage;
+    [SerializeField] private Sprite three;
+    [SerializeField] private Sprite two;
+    [SerializeField] private Sprite one;
+    [SerializeField] private Sprite go;
     private void Start()
     {
         StartCountdown();
@@ -63,21 +70,22 @@ public class SumoScript : MonoBehaviour
 
     private IEnumerator CountdownRoutine()
     {
-        countdownText.gameObject.SetActive(true);
+        countdown.SetActive(true);
 
-        countdownText.text = "3";
+        countdownImage.sprite = three;
         yield return new WaitForSeconds(delay);
 
-        countdownText.text = "2";
+        countdownImage.sprite = two;
         yield return new WaitForSeconds(delay);
 
-        countdownText.text = "1";
+        countdownImage.sprite = one;
         yield return new WaitForSeconds(delay);
 
-        countdownText.text = "GO!";
-        yield return new WaitForSeconds(0.5f); // short "GO!" flash
+        countdownImage.sprite = go;
+        yield return new WaitForSeconds(0.5f);
 
-        countdownText.gameObject.SetActive(false);
+        countdown.SetActive(false);
+
         Setup();
     }
 
