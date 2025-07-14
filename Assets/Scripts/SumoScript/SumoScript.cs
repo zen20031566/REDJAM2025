@@ -361,7 +361,7 @@ public class SumoScript : MonoBehaviour
             if (timeSinceNote > missWindow)
             {
                 missCount++;
-                if (missCount >= 5)
+                if (missCount >= 50000000)
                 {
                     conductor.musicSource.Stop();
                     DOTween.KillAll();
@@ -440,7 +440,7 @@ public class SumoScript : MonoBehaviour
         else
         {
             missCount++;
-            if (missCount >= 5)
+            if (missCount >= 50000000)
             {
                 conductor.musicSource.Stop();
                 DOTween.KillAll();

@@ -1,6 +1,6 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using System;
+using UnityEngine.InputSystem;
+using UnityEngine;
 
 public class TouchManager : MonoBehaviour
 {
@@ -56,7 +56,6 @@ public class TouchManager : MonoBehaviour
         if (swipe.magnitude > minimumDistance &&
             (endTouchTime - startTouchTime) <= maximumTime) //how long swipe last is <= max time else its a hold not swipe
         {
-            swipeJustDetected = true;
             if (Mathf.Abs(swipe.y) > Math.Abs(swipe.x))
             {
                 if (swipe.y > 0)
@@ -70,7 +69,7 @@ public class TouchManager : MonoBehaviour
                     OnSwipeDown?.Invoke(this, EventArgs.Empty);
                 }
             }
-            
+
         }
 
         //if not swipe then trigger onTap event, just to not let touch and swipe conflict
@@ -79,12 +78,8 @@ public class TouchManager : MonoBehaviour
             Debug.Log("Tap Detected");
             OnTap?.Invoke(this, EventArgs.Empty);
         }
-        else
-        {
-            swipeJustDetected = false;
-        }
 
-            OnTapReleased?.Invoke(this, EventArgs.Empty);
+        OnTapReleased?.Invoke(this, EventArgs.Empty);
         Debug.Log("Tap Releasedd");
 
     }

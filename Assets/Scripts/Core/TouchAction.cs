@@ -112,17 +112,6 @@ public partial class @TouchAction: IInputActionCollection2, IDisposable
                     ""action"": ""NoteTouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""96270db9-9ff0-467e-b6d1-b49dbff7d085"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NoteTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }

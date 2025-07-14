@@ -214,7 +214,7 @@ public class ClimberScript : MonoBehaviour
             if (timeSinceNote > missWindow)
             {
                 missCount++;
-                if (missCount >= 5)
+                if (missCount >= 500000)
                 {
                     conductor.musicSource.Stop();
                     DOTween.KillAll();
@@ -272,7 +272,7 @@ public class ClimberScript : MonoBehaviour
         else
         {
             missCount++;
-            if (missCount >= 5)
+            if (missCount >= 5000000)
             {
                 conductor.musicSource.Stop();
                 DOTween.KillAll();

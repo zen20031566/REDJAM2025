@@ -203,7 +203,7 @@ public class SushiScript : MonoBehaviour
             if (timeSinceNote > missWindow && note.isInitialized)
             {
                 missCount++;
-                if (missCount >= 5)
+                if (missCount >= 5000000)
                 {
                     conductor.musicSource.Stop();
                     DOTween.KillAll();
@@ -280,7 +280,7 @@ public class SushiScript : MonoBehaviour
         else
         {
             missCount++;
-            if (missCount >= 5)
+            if (missCount >= 50000000)
             {
                 conductor.musicSource.Stop();
                 DOTween.KillAll();
@@ -328,7 +328,7 @@ public class SushiScript : MonoBehaviour
                     sushi.FlickUp();
                 }
                 missCount++;
-                if (missCount >= 5)
+                if (missCount >= 50000000)
                 {
                     conductor.musicSource.Stop();
                     DOTween.KillAll();
